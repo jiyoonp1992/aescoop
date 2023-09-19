@@ -1,0 +1,73 @@
+/* ====================================================================================================================
+ * 조건 검색
+ * ====================================================================================================================*/
+.c_search { padding:0px 0px 0px 0px; }
+.sc_title { font-size:17px; font-weight:400; padding:5px 10px 0px 0px; }
+.form-group { padding-right:5px; margin-bottom:0px; }
+
+
+/* ====================================================================================================================
+ * 상단 버튼
+ * ====================================================================================================================*/
+.btn-pd {padding-bottom:17px;}
+
+/** 클릭된 페이지의 메뉴 시작 -----------*/
+.admenu02 { background-color:#A48973 !important; border-right:8px solid #7E6652 !important; font-weight:400; }
+.admenu_pn02 { background-color: #EBEBEB; border-right:8px solid #D4D4D4; display: block; }
+.admenu_pn02 a { color:#666666; }
+.admenu_pn02 a:hover { color:#000000; font-weight:400; }
+#admenu_a0201 { font-weight:400; color:#000000; }
+/** 클릭된 페이지의 메뉴 끝 -----------*/
+
+.status_bt input {
+    background-color: #DCDBD1;
+    border-radius: 4px;
+    padding: 10px 15px;
+    border:0;
+}
+
+.status_bt input:focus {outline:none;}
+
+.status_active {
+	color: #ffffff;
+    background-color: #ACAB9A !important;
+}
+
+/* ====================================================================================================================
+ * 제품리스트 테이블
+ * ====================================================================================================================*/
+.prod_table { width:100%; text-align:center; }
+.prod_table td { padding:15px; }
+.prod_table td button { font-size:12px; }
+
+.tr_header { border-top:3px solid #000000;}
+
+.tr_header td {
+	font-weight:500;
+	font-size:15px;
+	background-color:#EBEADE;
+	border-bottom:1px solid #C6C5BC;
+	border-right:1px solid #C6C5BC;
+}
+
+.tr_header td:last-child { border-right:0px; }
+
+.tr_body td {
+	border-bottom:1px solid #C6C5BC;
+	border-right:1px solid #C6C5BC;
+	background-color:#ffffff;
+}
+
+.prod_table td:first-child .form-control {
+	height:auto;
+}
+
+.tr_body td:nth-child(3) img { width:70px; height:70px; }
+
+.tr_body td:last-child { border-right:0px; }
+
+
+/* ====================================================================================================================
+ * 하단 버튼
+ * ====================================================================================================================*/
+.mg-right-10 { margin-right:10px; }

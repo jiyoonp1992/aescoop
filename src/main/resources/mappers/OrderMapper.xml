@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="OrderMapper">
+   <resultMap type="study.spring.aesoop.model.Order_List" id="orderMap">
+      <result property="orderno" column="orderno"/>
+      <result property="requirement" column="requirement"/>
+      <result property="tprice" column="tprice"/>
+      <result property="postno" column="postno"/>
+      <result property="address1" column="address1"/>
+      <result property="address2" column="address2"/>
+      <result property="address3" column="address3"/>
+      <result property="orderamount" column="orderamount"/>
+      <result property="orderstatus" column="orderstatus"/>
+      <result property="username" column="username"/>
+      <result property="usertel" column="usertel"/>
+      <result property="paid" column="paid"/>
+      <result property="shipped" column="shipped"/>
+      <result property="cancel" column="cancel"/>
+      <result property="userno" column="userno"/>
+      <result property="prodno" column="prodno"/>
+      <result property="pname" column="pname"/>
+      <result property="price" column="price"/>
+      <result property="size" column="size"/>
+      <result property="amount" column="amount"/>
+   </resultMap>
+   
+   
+   <!-- 데이터 저장을 위한 기능 정의 -->
+   <insert id="insertItem" parameterType="study.spring.aesoop.model.Order_List" useGeneratedKeys="true" keyProperty="orderno">
+      insert into order_list (requirement, tprice, postno, address1, address2 ,address3, orderamount, orderstatus, username, usertel, paid, shipped, cancel, userno)
+      values (#{requirement}, #{tprice}, #{postno}, #{address1}, #{address2}, #{address3}, #{orderamount}, '결제완료', #{username}, #{usertel}, now(), null, null, #{userno})
+   </insert>
+   
+   <!-- 데이터 수 조회를 위한 기능 정의 -->
+   <select id="orderCount" parameterType="study.spring.aesoop.model.Order_List" resultType="int">
+      SELECT count(*)
+      FROM order_list o
+      inner join user u
+      on o.userno=u.userno
+      <where>
+         <if test="username != null and username != ''">
+            o.username like concat('%', #{username}, '%')
+         </if>
+         <if test="orderno != null and orderno != ''">
+            orderno like concat('%', #{orderno}, '%')
+         </if>
+         <if test="userid != null and userid != ''">
+            u.userid like concat('%', #{userid}, '%')
+         </if>
+         <if test="orderstatus != null and orderstatus != '전체'">
+            and orderstatus like concat('%', #{orderstatus}, '%')
+         </if>
+      </where>
+   </select>
+   
+   
+   <!-- 다중행 조회를 위한 기능 정의 -->
+   <select id="selectList" parameterType="study.spring.aesoop.model.Order_List" resultMap="orderMap">
+      SELECT paid, orderno, o.username, userid, tprice, orderstatus, u.userid
+      FROM order_list o
+      INNER JOIN user u
+      ON o.userno = u.userno
+      <where>
+         <if test="username != null and username != ''">
+            o.username like concat('%', #{username}, '%')
+         </if>
+         <if test="orderno != null and orderno != ''">
+            orderno like concat('%', #{orderno}, '%')
+         </if>
+         <if test="userid != null and userid != ''">
+            u.userid like concat('%', #{userid}, '%')
+         </if>
+         <if test="orderstatus != null and orderstatus != '전체'">
+            and orderstatus like concat('%', #{orderstatus}, '%')
+         </if>
+      </where>
+      
+       ORDER BY paid DESC
+       
+       <if test="listCount > 0">
+          limit #{offset}, #{listCount}
+       </if>
+       
+   </select>
+   
+   <!-- 주문 상품 상세 조회 -->
+   <select id="selectItem" parameterType="study.spring.aesoop.model.Order_List" resultMap="orderMap">
+      SELECT orderno, requirement, tprice, postno, address1, address2, address3, orderstatus, orderamount, username, usertel, paid, shipped, cancel, userno from order_list WHERE orderno=#{orderno}
+   </select>
+   
+   <!-- 주문 상세 조회 -->
+   <select id="selectProdList" parameterType="study.spring.aesoop.model.Order_List" resultMap="orderMap">
+     SELECT p.prodno AS prodno, pname, price*c.amount AS price, size, c.amount, tprice
+     FROM product p
+     INNER JOIN cart c
+     ON p.prodno=c.prodno
+     INNER JOIN order_list o
+     ON c.has_orderno = o.orderno
+     WHERE c.userno IN (select userno from order_list WHERE orderno=#{orderno}) and orderno=#{orderno}
+   </select>
+   
+   <!-- 주문 수정 -->
+   <update id="updateItem" parameterType="study.spring.aesoop.model.Order_List">
+      UPDATE order_list set requirement=#{requirement}, postno=#{postno}, address1=#{address1}, address2=#{address2}, address3=#{address3}, username=#{username}, usertel=#{usertel}, orderstatus=#{orderstatus}
+	  <if test="orderstatus == '발송완료'">
+      	,shipped=now()
+      </if>
+      <if test="orderstatus == '취소요청중'">
+      	,cancel=now()
+      </if>
+	  WHERE orderno=#{orderno} 
+   </update>
+   
+   <!-- 배송 시작시 날짜 변경 -->
+   <update id="updateDate" parameterType="study.spring.aesoop.model.Order_List">
+      UPDATE order_list set orderstatus=#{orderstatus}
+	  <if test="orderstatus == '발송완료'">
+      	, shipped=now()
+      </if>
+      <if test="orderstatus == '취소요청중'">
+      	, cancel=now()
+      </if>
+	  WHERE orderno=#{orderno} 
+   </update>
+   
+   <!-- 주문 삭제 -->
+   <delete id="deleteItem" parameterType="study.spring.aesoop.model.Order_List">
+      DELETE FROM order_list WHERE orderno=#{orderno}
+   </delete>
+
+</mapper>

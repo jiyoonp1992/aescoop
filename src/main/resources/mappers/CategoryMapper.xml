@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CategoryMapper">
+
+    <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+    <resultMap id="categoryMap" type="study.spring.aesoop.model.Category">
+        <result property="cateno" column="cateno" />
+        <result property="category" column="category" />
+        <result property="subcateno" column="subcateno" />
+        <result property="sub_category" column="sub_category" />
+    </resultMap>
+
+ 	<!-- 단일행 조회를 위한 기능 정의 -->
+    <select id="selectItem"
+        parameterType="study.spring.aesoop.model.Category"
+        resultMap="categoryMap">
+        SELECT cateno, category
+        FROM category
+    </select>
+
+    <!-- 다중행 조회를 위한 기능 정의 -->
+    <select id="selectList"
+        parameterType="study.spring.aesoop.model.Category"
+        resultMap="categoryMap">
+        SELECT cateno, category
+        FROM category
+        ORDER BY cateno DESC
+
+    </select>
+    
+    <!-- 데이터 수 조회를 위한 기능 정의 -->
+    <select id="selectCountAll"
+        parameterType="study.spring.aesoop.model.Category" resultType="int">
+        SELECT COUNT(*)
+        FROM category
+    </select>
+	
+	<!-- 서브카테고리 조회를 위한 기능 정의 -->
+    <select id="selectSubCategory" parameterType="study.spring.aesoop.model.Category" resultMap="categoryMap">
+        SELECT cateno, category, subcateno, sub_category
+        FROM category c
+        INNER JOIN sub_category sc
+        ON c.cateno = sc.cateno
+        WHERE category = #{category}
+    </select>
+  
+	<!-- 서브카테고리 조회를 위한 기능 정의 - 유저페이지 목록 -->
+    <select id="selectSubCategory2" parameterType="study.spring.aesoop.model.Category" resultMap="categoryMap">
+        SELECT sc.cateno, category, subcateno, sub_category
+        FROM category c
+        INNER JOIN sub_category sc
+        ON c.cateno = sc.cateno
+        WHERE sc.cateno = #{cateno}
+    </select>
+    
+</mapper>

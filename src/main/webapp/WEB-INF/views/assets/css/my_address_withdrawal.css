@@ -1,0 +1,34 @@
+/* ========== 회원탈퇴 상단 ========== */
+    #withdrawal_hd { padding: 140px 0px 70px 0px; width: 70%; margin: auto; color: red;}
+/* ========== 회원탈퇴 리스트 ========== */
+    .info_guid_date ul { padding: 0 30px; list-style-type: disc }
+    label { line-height: 1.2; }
+    .form-group {margin-bottom : 65px;}
+    hr{margin:30px 0}
+    .info_guid_body {margin-bottom:10px;}
+    input[type="text"] {width:45%;}
+    .radio {margin:15px 0;} 
+/* ====================================================================================================================
+ * 태블릿 PC 혹은 가로 768px 이상
+ * ====================================================================================================================*/
+   @media (min-width: 768px) {
+       #withdrawal_hd { padding: 63px 0px 25px 0px; width: 70%; }
+       #withdrawal_hd h1 { font-size: 24px; padding-top: 70px; }
+       #withdrawal_body { padding: 20px 0px 20px 0px; width: 70%; margin: auto; }
+       .delete_hd, .info_guid_hd, .radio_hd {font-size: 1.7rem; }
+    .info_guid_body, .delete_body, .radio_body, .info_guid_date {font-size: 1rem; }
+    #withdrawal_body button{margin:-30px 0 50px 0; width:30%;padding:10px 0;font-size:20px;}
+    input[type="text"] {width:45%;}
+   }
+   
+/* ====================================================================================================================
+ * 가장 작은 해상도 (핸드폰종류, 가로 480px 이하)
+ * ====================================================================================================================*/
+   @media (max-width: 767px) {
+       #withdrawal_hd { padding: 140px 20px 45px 20px; width: auto; }
+       #withdrawal_body { padding: 10px 20px 20px 20px; width: auto; }
+       .delete_hd, .info_guid_hd, .radio_hd {font-size: 1.3rem; }
+    .info_guid_body, .delete_body, .radio_body, .info_guid_date {font-size: 0.8rem; }
+    #withdrawal_body button{margin:-30px 0 50px 0; width:40%;font-size:20px;padding:10px 0;}
+    input[type="text"] {width:50%;}
+   }

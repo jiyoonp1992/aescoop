@@ -1,0 +1,236 @@
+/* ====================================================================================================================
+ * 상단
+ * ====================================================================================================================*/
+/* ========== 마이페이지 상단 ========== */
+   #mypage_box { background-color: #f6f5e7; }
+   #mypage_header { padding: 140px 0px 70px 0px; width: 70%; margin: auto; }
+   #mypage_header h1 { font-size: 24px; }
+   .clearfix:after { content: " "; display: table; clear: both; }
+/* ========== 마이페이지 상단 드롭다운 ========== */
+   #mypage_header .dropdown { height: 53px; border: 1px solid #D6D5CC; padding: 10px; margin: 10px auto 0 auto; }
+   #mypage_header .dropdown a { width : auto; display:block; }
+   #mypage_header .dropdown-menu { width: 100%; }
+   .panel, .panel-group .panel-heading+.panel-collapse>.panel-body { border: none; background-color: #FFFEF2; }
+/* ========== 마이페이지 드롭다운 화살표 ========== */
+   b { margin-top: 7px; }
+/* ====================================================================================================================
+ * 내용
+ * ====================================================================================================================*/
+.con_box { padding-top: 25px; }
+.con_box h1 { font-size:24px; margin-bottom:20px; }
+
+.recent td { width:12.5%; float:left; padding:20px 0px; }
+.recent td:hover { background-color:#F0EFE2; }
+.recent img { width:100%; }
+
+.h30 { height:30px; }
+
+
+/* ====================================================================================================================
+ * 제품리스트
+ * ====================================================================================================================*/
+#btn-style {
+    color: #ffffff;
+    background-color: #aa583a;
+    border-color: #974e34;
+    padding:2px 7px;
+    font-size:13px;
+}
+
+#btn-style:hover {
+   	background-color:#84442D;
+}
+
+#btn-style2 {
+    color: #ffffff;
+    background-color: #627b4a;
+    border-color: #556b40;
+    padding:2px 7px;
+    font-size:13px;
+}
+
+#btn-style2:hover {
+   	background-color:#495B37;
+}
+
+.pd_bottom_3 { padding-bottom:5px; }
+
+/* ====================================================================================================================
+ * 후기
+ * ====================================================================================================================*/
+
+.review {
+	padding: 50px 0;
+}
+
+.review_input {
+	margin-bottom: 50px;
+	padding: 0 5%;
+}
+
+.review h2 {
+	font-size: 25px;
+	margin-bottom: 20px;
+}
+
+.review textarea {
+	width: 100%;
+	height: 100px;
+	border: none;
+	border-bottom: 1px solid #d5d4c9;
+	background-color: #fffef1;
+	resize:none;
+	font-size: 14px;
+}
+
+.review textarea:focus {
+	outline: 0;
+	border-bottom: 1px solid #252525;
+}
+
+.review button {
+	background-color: #fffef1;
+	border: 0;
+	outline: none;
+}
+
+.review button:hover {
+		border-bottom: 1px solid #d5d4c9;
+}
+
+.review button:active {
+		border-bottom: 1px solid #252525;	
+}
+
+.review_output {
+	padding: 0 5%;
+}
+
+.review_userid {
+	font-weight: 400;
+	padding-right: 10px;
+}
+
+.pd_bottom_3 { padding-bottom:3px; }
+
+.review_text { padding:8px; background-color:#ffffff; border:1px solid #E5E4CE; display:block; }
+
+/**--------------- 별점 시작 ---------------*/
+.review_rating{
+	display: inline-block;
+}
+
+.rating {
+	display: inline-block;
+	vertical-align:middle;
+}
+
+.rating>input {
+	display: none;
+	margin: 0 0px;
+}
+
+
+.rating>label:before {
+	display: inline-block;
+	content: "\f005";
+	background: url('../img/star.png') 0 0 no-repeat;
+	width: 17px;
+	color: rgba(0, 0, 0, 0);
+	background-size: 17px;
+}
+
+.rating>input[type="radio"]+label {
+	color: #999;
+	float: right;
+	margin: 0 1px;
+}
+
+.rating>input:checked ~ label {
+	content: "\f005";
+	display: inline-block;
+	background: url('../img/star-on.png') 0 0 no-repeat;
+	width: 17px;
+	padding: 0;
+	background-size: 17px;
+	z-index: 5;
+}
+
+.rating>input:checked ~ label:before {
+	background: none;
+}
+/**--------------- 별점 끝 ---------------*/
+
+.rating>img {
+	display: inline-block;
+	width: 17px;
+	
+}
+
+
+/* ====================================================================================================================
+ * 뷰 페이지
+ * ====================================================================================================================*/
+#text_form { width:100%; height:100px; }
+#font-white { color:#ffffff; }
+
+a:link, a:visited, a:hover, li {
+    text-decoration: none;
+    /* color: #333; */
+}
+
+
+/* ====================================================================================================================
+ * 페이지 번호 표시(페이지네이션)
+ * ====================================================================================================================*/
+.pagination_center { text-align:center; }
+
+.pagination li a { color:#333333; }
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #333333;
+    border-color: #333333;
+}
+
+
+
+
+/* ====================================================================================================================
+ * 태블릿 PC 혹은 가로 768px 이상
+ * ====================================================================================================================*/
+@media ( min-width : 768px) {
+	#mypage_header {
+		padding: 63px 0px 45px 0px;
+		width: 70%;
+	}
+	
+	#mypage_header h1 {
+		font-size: 24px;
+		padding-top: 70px;
+	}
+	
+	.con_box {
+		padding: 40px 0px 60px 0px;
+		width: 70%;
+		margin: auto;
+	}
+}
+/* ====================================================================================================================
+ * 가장 작은 해상도 (핸드폰종류, 가로 480px 이하)
+ * ====================================================================================================================*/
+@media ( max-width : 767px) {
+	#mypage_header {
+		padding: 140px 20px 45px 20px;
+		width: auto;
+	}
+	
+	.con_box {
+		padding: 30px 20px 20px 20px;
+		width: auto;
+	}
+	
+	.recent td { width:25%; float:left; padding:20px 0px; }
+}

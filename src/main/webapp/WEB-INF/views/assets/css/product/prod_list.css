@@ -1,0 +1,388 @@
+@charset "utf-8";
+
+/* ====================================================================================================================
+ * 큰 제목
+ * ====================================================================================================================*/
+.list_theme {
+    font-size: 24px;
+    padding: 74px 15px 20px 15px;
+}
+
+/* ====================================================================================================================
+ * 제품 리스트
+ * ====================================================================================================================*/
+.list_theme_detail {
+    padding: 24px 15px;
+    width: 1060px;
+    font-size: 14px;
+}
+
+.list_theme_detail_list {
+    overflow: scroll;
+    width: 100%;
+    background-color: #ebeadd;
+}
+
+.list_theme_detail li {
+    display: inline;
+}
+
+.list_theme_detail li a {
+    padding: 0 10px;
+}
+
+.list_theme_detail li:nth-child(1) a {
+    padding: 0;
+    padding-right: 10px;
+}
+
+.list_theme_detail li:last-child a {
+    padding: 0;
+    padding-left: 10px;
+}
+
+/* ====================================================================================================================
+ * 필터
+ * ====================================================================================================================*/
+.list_theme_detail_prod {
+    background-color: #f6f5e7;
+    padding: 20px;
+    z-index: 999;
+}
+
+/* ====================================================================================================================
+ * 필터 버튼
+ * ====================================================================================================================*/
+.filter {
+    display: block;
+    padding: 21px 23px;
+    border: 1px solid rgba(51, 51, 51, .2);
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.pointer {
+    font-size: 10px;
+    line-height: 25px;
+    float: right;
+    line-height: 17px;
+}
+
+.pointer img {
+    height: 6px;
+}
+
+/* ====================================================================================================================
+ * 필터 오버레이
+ * ====================================================================================================================*/
+.overlay_filter {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #f6f5e7;
+	display: none;
+	z-index: 1000;
+	overflow: scroll;
+}
+/* ====================================================================================================================
+ * 필터 오버레이 나가기 버튼
+ * ====================================================================================================================*/
+.x_icon {
+	display: block;
+	width: 12px;
+	height: 12px;
+	position: fixed;
+	right: 34px;
+	top: 34px;
+}
+
+.x_icon_img {
+	width: 100%;
+}
+/* ====================================================================================================================
+ * 필터 오버레이 필터 부분
+ * ====================================================================================================================*/
+
+.filter_list {
+	width: 100%;
+	padding: 120px 0 140px 20px;
+}
+
+.filter_name {
+	font-size: 18px;
+	color: #252525;
+	font-weight: 350;
+	border-bottom: 0;
+}
+
+.checkbox {
+	display:none;
+}
+
+.filter_checkbox {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border: 1px solid #252525;
+	padding: 0;
+	margin: 0;
+}
+
+.filter_label {
+	font-size: 20px;
+	font-weight: 400;
+	color: #252525;
+}
+
+.myform input[type="checkbox"]:checked+.filter_checkbox {
+	background-color: #252525;
+}
+
+.filter_fieldset {
+	border-bottom: 1px solid #666666;
+	margin-top: 20px;
+	padding-bottom: 20px;
+}
+
+/* ====================================================================================================================
+ * 필터 오버레이 아래쪽 설정 버튼
+ * ====================================================================================================================*/
+
+.filter_setting {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	background-color: #fffef1;
+}
+
+.filter_setting_button {
+	display: inline-block;
+	width: 50%;
+	height: 100%;
+}
+
+.filter_setting_button:first-child {
+	padding: 20px 5px 20px 20px;
+}
+.filter_setting_button:last-child {
+	padding: 20px 20px 20px 5px;
+}
+
+.filter_setting_button button {
+	display: inline-block;
+	background-color: #fffef1;
+	border: 1px solid rgba(51, 51, 51, .2);
+	width: 100%;
+	height: 100%;
+}
+/* ====================================================================================================================
+ * 목록 설명
+ * ====================================================================================================================*/
+
+.list_explanation {
+    padding: 50px 20px;
+}
+
+
+.list_explanation h2 {
+	font-size: 30px;
+	padding-bottom: 30px;
+}
+
+.list_explanation p {
+	font-size: 18px;
+	font-weight: 350;
+}
+
+/* ====================================================================================================================
+ * 제품 정보
+ * ====================================================================================================================*/
+
+.prod_info {
+    padding: 50px 20px;
+}
+
+.prod_info:hover {
+	background-color: #f0efe0;
+}
+
+.prod_info_link {
+    display: block;
+    width: 100%;
+}
+
+
+.prod_info_link_img {
+    display: block;
+    max-width: 300px;
+    height: 320px;
+    object-fit: cover;
+    margin: auto;
+    /* 현석 */
+}
+
+.prod_info_link_text {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    padding-top:10px;
+}
+
+#addCartForm{
+	margin:20px 0px;
+}
+
+a.prod_info_cart {
+    display: block;
+    width: 100%;
+    padding: 21px 23px;
+    background-color: #333333;
+    color: #fffef1 !important;
+    text-align: center;
+}
+
+.btn-success {
+	margin:15px 0px;
+}
+
+.prod_info_char {
+    font-size: 14px;
+}
+
+.prod_info_char_title {
+    color: #252525;
+}
+
+.prod_info_char_content {
+    color: #666;
+}
+
+/* ====================================================================================================================
+ * 다음 단계
+ * ====================================================================================================================*/
+
+.next {
+    padding: 50px 0;
+    background-color: #ebeadd;
+}
+
+.next_box {
+	width: 500px;
+	height: 100%;
+	margin: auto;
+}
+
+.next_box_exp {
+	padding-top: 50px;
+}
+
+.next img{
+	display:inline-block;
+	width: auto;
+	max-width: 300px;
+}
+
+.next h5 {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.next h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+/* ====================================================================================================================
+ * 피부 특성
+ * ====================================================================================================================*/
+
+.my_skin {
+    padding: 80px 0 80px 20px;
+}
+
+.my_skin.clearfix {
+    padding-right: 0;
+}
+
+.my_skin_explanation {
+    padding-right: 20px;
+    padding-bottom: 30px;
+}
+
+.my_skin_explanation h1 {
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.link_button {
+    font-size: 14px;
+    line-height: 1.4;
+    display: block;
+    width: auto;
+    padding: 19px 23px;
+    border: 1px solid rgba(51, 51, 51, .2);
+    margin-top: 30px;
+}
+
+.link_button:hover {
+    border: 0px;
+    background-color: #333333;
+    border: 1px solid #333333;
+    color: #ffffff;
+}
+
+
+
+/* ====================================================================================================================
+ * 큰 크기의 데스크탑 혹은 가로 1200px 이상
+ * ====================================================================================================================*/
+@media (min-width: 1200px) {
+	.my_skin_explanation {
+	padding-top: 50px;
+	width: 40%;
+	float:left;
+	}
+	
+.my_skin_img {
+    width: 60%;
+}	
+}
+
+
+/* ====================================================================================================================
+ * 작은 크기의 데스크탑 혹은 가로 992px 이상
+ * ====================================================================================================================*/
+@media (min-width: 992px) and (max-width: 1199px) {
+	
+	.my_skin_explanation {
+	padding-top: 50px;
+	width: 40%;
+	float:left;
+	}
+	.my_skin_img {
+    width: 60%;
+}
+}
+
+
+/* ====================================================================================================================
+ * 태블릿 PC 혹은 가로 768px 이상
+ * ====================================================================================================================*/
+@media (min-width: 768px) and (max-width: 991px) {
+	.my_skin_img {
+    width: 100%;
+}
+}
+
+
+/* ====================================================================================================================
+ * 가장 작은 해상도 (핸드폰종류, 가로 480px 이하)
+ * ====================================================================================================================*/
+@media (max-width: 767px) {
+	.my_skin_img {
+    width: 100%;
+}
+ }

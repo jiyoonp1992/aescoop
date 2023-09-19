@@ -1,0 +1,197 @@
+/* ====================================================================================================================
+ * 메인, 배너 텍스트 박스
+ * ====================================================================================================================*/
+.txt_box { padding:0 20px; }
+.txt_box h1 { font-size:29px; margin-bottom:20px; }
+.txt_box h2 { font-size:25px; margin-top:20px;}
+.link_button {
+  font-size: 14px;
+  line-height: 1.4;
+  display:block;
+  width:auto;
+  padding: 19px 23px;
+  border: 1px solid rgba(51,51,51,.2);
+  margin-top:30px;
+}
+
+.link_button:hover {
+  border: 0px;
+  background-color:#333333;
+  border: 1px solid #333333;
+  color:#ffffff;
+}
+
+
+
+/* ====================================================================================================================
+ * 메인이미지
+ * ====================================================================================================================*/
+.m_img_box { background-color: rgb(192, 178, 164); }
+
+.m_img {
+  background: url('../img/main/mimg.jpg');
+  background-repeat:no-repeat;
+  background-size:100%;
+  background-position:0 300px;
+  width:50%;
+  float:left;
+}
+
+.m_box { padding:280px 20px 0px 70px; float:left; width:auto; }
+
+
+
+/* ====================================================================================================================
+ * 배너 공통
+ * ====================================================================================================================*/
+.h20 { height:20px; }
+.h40 { height:40px; }
+.mg_top_35 { margin-top:35px; }
+.mg_top_45 { margin-top:45px; }
+.mg_top_55 { margin-top:55px; }
+.mg_top_85 { margin-top:85px; }
+.mg_top_95 { margin-top:95px; }
+.mg_bt_50 { margin-bottom:100px; }
+.bn_img_01 { background-repeat:no-repeat; background-size:cover; width:97%; }
+.bn_img_01_2 { width:97%; height:535px; background-color:#ffff00; }
+
+
+/* ====================================================================================================================
+ * 배너01
+ * ====================================================================================================================*/
+.bn_bg_01_01 { background-image: url('../img/main/bn01-1.jpg'); }
+.bn_bg_01_02 { background-image: url('../img/main/bn01-2.jpg'); }
+.bn_bg_01_03 { background-image: url('../img/main/bn01-3.jpg'); }
+
+
+/* ====================================================================================================================
+ * 배너02 - 슬라이드 배너 (1)
+ * ====================================================================================================================*/
+.bn_slide_title { font-size:25px; padding: 80px 20px 25px 20px; display:block; }
+.slide_box {height:538px; background-color:#ffff00;}
+.bn_slide_txt { padding: 17px 20px 0px 15px;}
+
+
+/* ====================================================================================================================
+ * 배너04 - 슬라이드 배너 (2), 배너05 - + 슬라이드 배너 (3)
+ * ====================================================================================================================*/
+.bn_box_03 { font-size:14px; float:left; width:50%;}
+.bn_box_03_pd { padding:0px 10px 0px 20px;}
+.bn_box_03_pd_2 { padding:0px 20px 0px 10px;}
+.bn_title_button { padding:15px 0 5px 0; margin:0;}
+.bn_title_button a { color:#252525; font-size:17px; line-height:1.6;}
+.bn_title_button a:hover { border-bottom:1px solid #333333;}
+.bn_img_03 {width:auto; background-repeat:no-repeat; background-size:cover; display:block;}
+.bn_bg_03_01 { background-image: url('../img/main/bn03-1.jpg'); }
+.bn_bg_03_02 { background-image: url('../img/main/bn03-2.jpg'); }
+
+
+/* ====================================================================================================================
+ * 배너04 - 슬라이드 배너 (2), 배너05 - + 슬라이드 배너 (3)
+ * ====================================================================================================================*/
+.bn_box_04 { padding: 160px 20px; text-align:center; font-weight:400; }
+.bn_box_04 div { font-size:25px; font-weight:500; line-height:150%; padding-bottom:20px; }
+
+
+
+/* ====================================================================================================================
+ * 큰 크기의 데스크탑 혹은 가로 1200px 이상
+ * ====================================================================================================================*/
+@media (min-width: 1200px) {
+    .m_img {
+        height:600px;
+        background-position:0 -100px;
+    }
+
+    .bn_img_01, .bn_img_01_2 {
+        height:400px;
+        background-position:0 -200px;
+    }
+    
+    .bn_img_03 {
+    	 height:650px;
+    	 background-position:0px 0px;
+    }
+}
+
+
+/* ====================================================================================================================
+ * 작은 크기의 데스크탑 혹은 가로 992px 이상
+ * ====================================================================================================================*/
+@media (min-width: 992px) and (max-width: 1199px) {
+    .m_img {
+        height:400px;
+        background-position:0 -400px;
+        float:none;
+ 		width:100%;
+    }
+    
+    .m_box { padding:45px 20px 50px 20px; float:none; }
+
+
+    .bn_img_01, .bn_img_01_2 {
+        height:350px;
+        background-position:0 -100px;
+    }
+    
+    .bn_box_03 { font-size:14px; float:left; width:50%;}
+    
+    .bn_img_03 {
+    	 height:450px;
+    	 background-position:0 0px;
+    }
+}
+
+
+/* ====================================================================================================================
+ * 태블릿 PC 혹은 가로 768px 이상
+ * ====================================================================================================================*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .m_img {
+        height:400px;
+        background-position:0 -300px;
+        float:none;
+ 		width:100%;
+    }
+    
+	.m_box { padding:45px 20px 50px 20px; float:none; }
+
+    .bn_img_01, .bn_img_01_2 {
+        height:250px;
+        background-position:0 -70px;
+    }
+    
+    .bn_img_03 {
+    	 height:316px;
+    	 background-position:0 0px;
+    }
+}
+
+
+/* ====================================================================================================================
+ * 가장 작은 해상도 (핸드폰종류, 가로 480px 이하)
+ * ====================================================================================================================*/
+@media (max-width: 767px) {
+    .m_img {
+        height:350px;
+        background-position:0 0px;
+        float:none;
+ 		width:100%;
+    }
+    
+	.m_box { padding:45px 20px 50px 20px; float:none; }
+
+    .bn_img_01, .bn_img_01_2 {
+        height:175px;
+        background-position:0 -10px;
+    }
+    
+    .bn_box_03 { font-size:14px; float:none; width:100%;}
+    .bn_box_03_pd { padding:10px 20px 0px 20px;}
+	.bn_box_03_pd_2 { padding:0px 20px 0px 20px;}
+    
+    .bn_img_03 {
+    	 height:170px;
+    	 background-position:0 -90px;
+    }
+ }

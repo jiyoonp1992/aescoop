@@ -1,0 +1,386 @@
+/* ====================================================================================================================
+ * 이숲에게 묻는다
+ * ====================================================================================================================*/
+.ask_box {
+	background-color: #f6f5e7;
+}
+
+.ask_box h1 {
+	font-size: 24px;
+}
+
+.ask_box_pd {
+	padding: 140px 0px 70px 0px;
+	width: 70%;
+	margin: auto;
+}
+
+.form-body {
+	border: 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+.form-body .form-control {
+	background: none;
+	border: 0px;
+	border-bottom: 2px solid #666666;
+	box-shadow: 0px;
+	transition: none;
+	padding: 25px 0px;
+	font-size: 18px;
+	-webkit-box-shadow: none;
+	margin: auto;
+}
+
+.form-body .form-control2 {
+	margin-top: 70px;
+	height: 50px;
+	border-style: none;
+	border-bottom: 1px solid #666666;
+	background-color: #fffef2;
+	font-size: 20px;
+	width: 100%;
+}
+
+.message {
+	border: 0.1rem solid #979797;
+	padding: 2.6rem 2rem 2rem;
+	transition: border 0.2s ease-in-out;
+	background: none;
+	min-height: 11.4rem;
+	width: 100%;
+	margin-top: 70px;
+}
+
+
+.filebox {
+	margin-top: 70px;
+}
+
+
+.filebox label {
+	border: 0.5px solid #B9B9B9;
+	font-size: 14px;
+	color: #B9B9B9;
+	width: 100%;
+	height: 45px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+.filebox input[type="file"] { /* 파일 필드 숨기기 */
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+
+.submit {
+	margin-top: 70px;
+	margin-bottom: 40px;
+}
+
+
+
+.btn-submit {
+	background-color: #666666;
+	width: 100%;
+	height: 60px;
+	margin-top: 30px;
+	padding: 20px 0;
+	font-size: 15px;
+	color: #fff;
+}
+
+.btn-submit:hover {
+	background-color: #333;
+	color: #fff;
+}
+
+.form-parents {
+	position: relative;
+}
+
+.search_bt {
+	position: absolute;
+	top: 13px;
+	right: 0px;
+}
+
+.search_bt button {
+	background-image: url(../img/search.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: 16px 12px;
+	width: 16px;
+	height: 16px;
+	border: 0px;
+	background-color: #f6f5e7;
+}
+
+/* ====================================================================================================================
+ * 아코디언 영역
+ * ====================================================================================================================*/
+/** 메뉴 시작 ----------------------------------------------------------------------------------------*/
+.panel-group .panel {
+	border-radius: 0px;
+}
+
+.panel {
+	background-color: #fff;
+	border: none;
+	border-radius: 0px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.panel a {
+	color: #333333;
+}
+
+.panel .accordion-toggle:hover {
+	color: #666666;
+	font-weight: 400;
+}
+
+.panel-heading {
+	padding: 13px 15px;
+	border-bottom: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.panel-default>.panel-heading {
+	background-color: #f6f5e7;
+	border: 0px;
+}
+
+.panel-default>.panel-heading a {
+	color: #333333;
+	font-size: 17px;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+.panel-group .panel+.panel {
+	margin-top: 0px;
+}
+
+.panel-body a {
+	display: block;
+	padding: 5px 0px;
+}
+
+.panel-body .question:first-child { padding-top: 0px; }
+
+.panel-group .panel-heading+.panel-collapse>.panel-body, .panel-group {
+	border-top: 0px;
+}
+
+.panel-body .image {
+	height: 400px;
+}
+
+.panel-body .image img {
+	width: 100%;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.table {
+	width: 100%;
+	border: 1px solid #444444;
+	border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid #444444;
+}
+
+
+.question {
+	padding-top: 40px;
+}
+
+.answer {
+	padding-top: 2px;
+}
+
+/* ====================================================================================================================
+ * 메인 + 드롭다운
+ * ====================================================================================================================*/
+.main_box {
+	padding-top: 25px;
+}
+
+.main_box h1 {
+	font-size: 24px;
+	margin-bottom: 30px;
+}
+
+.main_box h2 {
+	font-size: 25px;
+	margin-top: 20px;
+}
+
+.main_box h3 {
+	font-size: 24px;
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+}
+
+.input_group_ask select {
+	margin-top: 50px;
+	width: 100%;
+	border: 0;
+	border-bottom: 1px solid #666666;
+	background-color: #fffef2;
+	font-size: 20px;
+	color: #333333;
+	font-weight: bolder;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+
+/* ====================================================================================================================
+ * 공지사항
+ * ====================================================================================================================*/
+.notice_title {
+	font-size: 24px;
+	padding-bottom:20px;
+}
+ 
+ th, td {
+    border: 0px;
+}
+ 
+.notice_table { width:100%; text-align:center; border:0px; }
+.notice_table td {
+	padding:15px;
+ }
+.notice_table td button { font-size:12px; }
+
+
+.tr_header { border-top:3px solid #000000;}
+
+.tr_header td {
+	font-weight:500;
+	font-size:15px;
+	background-color:#EBEADE;
+	border-bottom:1px solid #C6C5BC;
+	border-right:1px solid #C6C5BC;
+}
+
+.tr_header td:last-child { border-right:0px; }
+
+.tr_body td {
+	border-bottom:1px solid #C6C5BC;
+	border-right:1px solid #C6C5BC;
+	background-color:#ffffff;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.tr_body a { display:block; width:auto; }
+
+.tr_body td:last-child {
+    border-right: 0px;
+}
+
+.nt_title_box { border-top:1px solid #C6C5BC; }
+.nt_title_box, .notice_etc_box, .notice_con_box { width:100%; }
+.nt_title_box, .notice_etc_box div { border-bottom:1px solid #C6C5BC; }
+.ntt01, .nte01, .nte03 { width:15%; font-weight:500; background-color:#EBEADE; padding:15px 0 15px 1%; }
+.ntt02 { width:85%; background-color:#ffffff;  padding:15px 0 15px 1%; }
+.nte02, .nte04 { width:35%; background-color:#ffffff; padding:15px 0 15px 1%;}
+.notice_con_box { padding:15px 1% 100px 1%; background-color:#ffffff; border-bottom:1px solid #C6C5BC; }
+
+.notice_img { padding-bottom:15px; }
+.notice_img img { width:100%; }
+
+.notice_btn { text-align:right; padding-top:15px; }
+.notice_btn>a, a:link, a:visited, a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.h50 { height:50px; }
+
+#text_form2 { width:100%; height:300px; }
+
+/* ====================================================================================================================
+ * 페이지 번호 표시(페이지네이션)
+ * ====================================================================================================================*/
+.pagination_center { text-align:center; }
+
+.pagination li a { color:#333333; }
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #333333;
+    border-color: #333333;
+}
+
+
+
+/* ====================================================================================================================
+ * 태블릿 PC 혹은 가로 768px 이상
+ * ====================================================================================================================*/
+@media ( min-width : 768px) {
+	.ask_box_pd {
+		padding: 63px 0px 45px 0px;
+		width: 70%;
+	}
+	.content {
+		padding: 40px 0px 20px 0px;
+		width: 85%;
+		margin: auto;
+	}
+	.ask_box h1 {
+		font-size: 24px;
+		padding-top: 70px;
+	}
+	.form-body .form-control {
+		padding: 23px 0px;
+	}
+	.main_box h1 {
+		margin-bottom: 20px;
+	}
+}
+
+/* ====================================================================================================================
+ * 가장 작은 해상도 (핸드폰종류, 가로 480px 이하)
+ * ====================================================================================================================*/
+@media ( max-width : 767px) {
+	.ask_box_pd {
+		padding: 140px 20px 45px 20px;
+		width: auto;
+	}
+	.content {
+		padding: 30px 20px 20px 20px;
+		width: auto;
+	}
+	.main_box h1 {
+		margin-bottom: 15px;
+	}
+	
+	.ntt01, .nte01, .nte03 { width:20%; padding:15px 0 15px 2%; }
+	.ntt02 { width:80%; padding:15px 0 15px 2%; }
+	.nte02, .nte04 { width:80%; padding:15px 0 15px 2%;}
+	.notice_con_box { padding:15px 1% 100px 2%; }
+	
+	td, th { font-size: 13px; }
+	
+	.tr_header td { font-size: 13px; }
+	
+	.ntt01, .ntt02, .nte01, .nte02, .notice_con_box { font-size:13px; }
+}

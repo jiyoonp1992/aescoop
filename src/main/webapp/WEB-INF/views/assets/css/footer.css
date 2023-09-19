@@ -1,0 +1,82 @@
+#footer hr { margin: 0; }
+#footer .panel { box-shadow: none; margin: 0; background-color: #fffef2;}
+#footer .panel-heading { padding: 0; height: 70px; border-top: 1px solid rgba(51,51,51,.2); border-bottom:0px !important; }
+
+.full-size {
+  display: block;
+  width: auto;
+  height: 100%;
+  padding: 24px 15px;
+}
+
+@keyframes fadeInLeft {
+
+  from {
+    opacity:0;
+    transform: translateX(-25%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+}
+
+.media-list {
+	 padding-bottom:20px;
+}
+
+.media { animation: fadeInLeft 0.3s ease forwards; }
+
+.media a { color: #666; font-size:14px; }
+
+.media img { height:6px; padding-left:13px; top:-3px; position:relative;}
+
+a:link, a:visited, a:hover, li {
+  text-decoration: none;
+  color: #333;
+}
+
+/* ====================================================================================================================
+ * 아코디언 화살표
+ * ====================================================================================================================*/
+#footer .pointer{
+	float: right;
+	line-height: 17px;
+}
+
+
+#footer .pointer img {
+	height:6px;
+}
+
+.transform {
+	transform: rotate(-180deg);
+}
+
+/* ====================================================================================================================
+ * 카피 영역
+ * ====================================================================================================================*/
+#cop-info { padding: 24px 15px; border-top: 1px solid rgba(51,51,51,.2);}
+
+#copyright {
+  color: #c7cccc;
+  padding: 24px 15px;
+  background-color: #000;
+}
+
+#copyright a {
+	color: #c7cccc;
+}
+
+.portfolio_text { line-height: 18px; font-size:14px; }
+.portfolio_text br { display:none; }
+
+
+/* ====================================================================================================================
+ * 가장 작은 해상도 (핸드폰종류, 가로 480px 이하)
+ * ====================================================================================================================*/
+@media (max-width: 767px) {
+    .portfolio_text br { display:block; }
+ }

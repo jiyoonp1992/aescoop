@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ReviewMapper">
+	<resultMap type="study.spring.aesoop.model.Review" id="reviewMap">
+		<result property="reviewno" column="reviewno"/>
+		<result property="userno" column="userno"/>
+		<result property="prodno" column="prodno"/>
+		<result property="rate" column="rate"/>
+		<result property="content" column="content"/>
+		<result property="userid" column="userid"/>
+		<result property="has_orderno" column="has_orderno"/>
+		<result property="pname" column="pname"/>
+	</resultMap>
+	
+	<!-- 관리자 데이터 수 조회를 위한 기능 정의 -->
+	<select id="ReviewCount" parameterType="study.spring.aesoop.model.Review" resultType="int">
+		SELECT count(*) FROM review r
+		inner join product p
+		on r.prodno=p.prodno
+		<where>
+         <if test="pname != null and pname != ''">
+            pname like concat('%', #{pname}, '%')
+         </if>
+         <if test="userid != null and userid != ''">
+            userid like concat('%', #{userid}, '%')
+         </if>
+         <if test="content != null and content != ''">
+            r.content like concat('%', #{content}, '%')
+         </if>
+      </where>
+   </select>
+   
+   <!-- 유저 데이터 수 조회를 위한 기능 정의 -->
+	<select id="reviewCountUser" parameterType="study.spring.aesoop.model.Review" resultType="int">
+		SELECT count(*) FROM review
+		<where>
+         <if test="prodno != null and prodno != ''">
+            prodno like concat('%', #{prodno}, '%')
+         </if>
+      </where>
+   </select>
+   
+   
+	
+	<!-- 데이터 저장을 위한 기능 정의 -->
+	<insert id="addReviewItem" parameterType="study.spring.aesoop.model.Review" useGeneratedKeys="true" keyProperty="reviewno">
+		INSERT INTO review (
+			userno, prodno, rate, content
+		) VALUES (
+			#{userno}, #{prodno}, #{rate}, #{content}
+		)
+	</insert>
+	
+	<!-- 다중행 조회를 위한 기능 정의 -->
+   <select id="selectList" parameterType="study.spring.aesoop.model.Review" resultMap="reviewMap">
+      SELECT u.userid, content, rate, r.userno
+      FROM review r
+      INNER JOIN user u
+      ON r.userno = u.userno
+      WHERE prodno=#{prodno}
+      
+      ORDER BY reviewno DESC
+       
+       <if test="listCount > 0">
+          limit #{offset}, #{listCount}
+       </if>
+   </select>
+   
+   <!-- 마이페이지 다중행 조회를 위한 기능 정의 -->
+   <select id="selectMyList" parameterType="study.spring.aesoop.model.Review" resultMap="reviewMap">
+      SELECT r.userno, r.content, r.rate, p.pname, reviewno
+      FROM product p
+      INNER JOIN review r
+      ON p.prodno = r.prodno
+      WHERE r.userno=#{userno}
+      
+      ORDER BY reviewno DESC
+       
+       <if test="listCount > 0">
+          limit #{offset}, #{listCount}
+       </if>
+   </select>
+   
+   
+   <!-- 데이터 수 조회를 위한 기능 정의 -->
+	<select id="getMyCount" parameterType="study.spring.aesoop.model.Review" resultType="int">
+		SELECT count(*)
+		FROM product p
+		INNER JOIN review r
+		ON p.prodno = r.prodno
+		WHERE r.userno=#{userno}
+   </select>
+   
+   <!-- 리뷰 상세 조회 -->
+   <select id="selectReviewItem" parameterType="study.spring.aesoop.model.Review" resultMap="reviewMap">
+     SELECT r.userno, userid, r.content, r.rate, p.pname, reviewno
+     FROM review r
+     INNER JOIN product p
+     ON r.prodno = p.prodno
+     INNER JOIN user u
+     ON r.userno = u.userno
+     WHERE r.reviewno=#{reviewno}
+   </select>
+   
+   <!-- 관리자 리뷰 조회 -->
+   <select id="selectAdminReview" parameterType="study.spring.aesoop.model.Review" resultMap="reviewMap">
+   		select pname, userid, r.content, reviewno, rate from review r
+   		inner join product p
+   		on r.prodno=p.prodno
+   		inner join user u
+   		on r.userno=u.userno
+   		ORDER BY reviewno DESC
+   		
+   		<where>
+         <if test="pname != null and pname != ''">
+            pname like concat('%', #{pname}, '%')
+         </if>
+         <if test="userid != null and userid != ''">
+            userid like concat('%', #{userid}, '%')
+         </if>
+         <if test="content != null and content != ''">
+            r.content like concat('%', #{content}, '%')
+         </if>
+      </where>
+      
+      <if test="listCount > 0">
+          limit #{offset}, #{listCount}
+       </if>
+   </select>
+   
+   <!-- 리뷰 수정 -->
+   <update id="updateItem" parameterType="study.spring.aesoop.model.Review">
+      UPDATE review set rate=#{rate}, content=#{content}
+	  WHERE reviewno=#{reviewno}
+   </update>
+   
+   <!-- 리뷰에서 삭제 -->
+	<delete id="delReview" parameterType="study.spring.aesoop.model.Review">
+		DELETE FROM review WHERE reviewno=#{reviewno};
+	</delete>
+</mapper>

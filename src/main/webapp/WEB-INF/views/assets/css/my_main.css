@@ -1,0 +1,42 @@
+/* ========== 마이페이지 상단 ========== */
+   #mypage_box { background-color: #f6f5e7; }
+   #mypage_header { padding: 140px 0px 70px 0px; width: 70%; margin: auto; }
+   #mypage_header h1 { font-size: 24px; }
+   form { margin-top:20px; }
+   .clearfix:after { content: " "; display: table; clear: both; }
+/* ========== 마이페이지 상단 드롭다운 ========== */
+   #mypage_header .dropdown { height: 53px; border: 1px solid #D6D5CC; padding: 10px; margin: 10px auto 0 auto; }
+   #mypage_header .dropdown a { width : auto; display:block; }
+   #mypage_header .dropdown-menu { width: 100%; }
+   .panel, .panel-group .panel-heading+.panel-collapse>.panel-body { border: none; background-color: #FFFEF2; }
+/* ========== 마이페이지 드롭다운 화살표 ========== */
+   b { margin-top: 7px; }
+/* ========== 마이페이지 하단 아코디언 내용 ========== */
+   .panel-group>.panel { -webkit-box-shadow: none; box-shadow: none; }
+   #account_skin .form-group { margin:0; padding:0; }
+   #accountInfo button { width:20%; padding:5px 0; font-size:20px; margin:20px 0;}
+/* ========== 마이페이지 하단 계정 정보 내용 추가 ========== */
+   #account_skin select{ width:50%; background-color: transparent; border:none; border-bottom: 1px solid #D6D5CC; display:block;margin:25px 0;padding:4px 0;}
+   input[type="text"], input[type="password"] { font-size: 1.5rem; background-color: transparent; border-style: none; border-bottom: 1px solid #D6D5CC; box-shadow: none; padding: 0; }
+   input[type="text"]:focus, input[type="password"]:focus { font-size: 1.5rem; background-color: transparent; border-style: none; border-bottom: 1px solid #D6D5CC; box-shadow: none; }
+   input[type="text"] { margin-bottom : 15px; }
+/* ====================================================================================================================
+ * 태블릿 PC 혹은 가로 768px 이상
+ * ====================================================================================================================*/
+   @media (min-width: 768px) {
+       #mypage_header { padding: 63px 0px 45px 0px; width: 70%; }
+       #mypage_header h1 { font-size: 24px; padding-top: 70px; }
+       #accountInfo { padding: 40px 0px 20px 0px; width: 70%; margin: auto; }
+       #birthday {width:100%;}
+   	   #birthday select { width:30%; background-color: transparent; border:none; border-bottom: 1px solid #D6D5CC; font-size: 23px;}
+   }
+   
+/* ====================================================================================================================
+ * 가장 작은 해상도 (핸드폰종류, 가로 480px 이하)
+ * ====================================================================================================================*/
+   @media (max-width: 767px) {
+       #mypage_header { padding: 140px 20px 45px 20px; width: auto; }
+       #accountInfo { padding: 30px 20px 20px 20px; width: auto; }
+       #birthday {display:inline-block;width:100%;margin:auto;}
+   	   #birthday select { width:100%; background-color: transparent; border:none; border-bottom: 1px solid #D6D5CC; display:block;margin:25px 0;padding:4px 0;}
+   }

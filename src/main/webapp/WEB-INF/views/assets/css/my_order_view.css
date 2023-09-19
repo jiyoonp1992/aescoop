@@ -1,0 +1,135 @@
+/* ========== 마이페이지 상단 ========== */
+   #mypage_box { background-color: #f6f5e7; }
+   #mypage_header { padding: 140px 0px 70px 0px; width: 70%; margin: auto; }
+   #mypage_header h1 { font-size: 24px; }
+   .clearfix:after { content: " "; display: table; clear: both; }
+/* ========== 마이페이지 상단 드롭다운 ========== */
+   #mypage_header .dropdown { height: 53px; border: 1px solid #D6D5CC; padding: 10px; margin: 10px auto 0 auto; }
+   #mypage_header .dropdown a { width : auto; display:block; }
+   #mypage_header .dropdown-menu { width: 100%; }
+   .panel, .panel-group .panel-heading+.panel-collapse>.panel-body { border: none; background-color: #FFFEF2; }
+/* ========== 마이페이지 상단 드롭다운 화살표 ========== */
+   b { margin-top: 7px; }
+   #order_hd h1 { font-size:24px; margin-bottom:20px; }
+/* ========== 마이페이지 하단 내용 ========== */
+
+/* ========== 마이페이지 하단 테이블 ========== */ 
+
+.h10 { height:10px; }
+.h30 { height:30px; }
+  
+table {
+	text-align: center;
+	width: 100%;
+	font-size:15px;
+}
+
+th, td {
+	border: 1px solid #ddd;
+	text-align: center;
+}
+
+tbody {
+	background-color: white;
+}
+
+.prod_table { width:100%; text-align:center; margin-top:15px; }
+.prod_table td {
+	padding:15px;
+ }
+ 
+.prod_table th, td {
+	border-left: 0px;
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	text-align: center;
+}
+ 
+.prod_table td button { font-size:12px; }
+
+
+.tr_header { border-top:3px solid #000000;}
+
+.tr_header td {
+	font-weight:500;
+	font-size:15px;
+	background-color:#EBEADE;
+	border-bottom:1px solid #C6C5BC;
+	border-right:1px solid #C6C5BC;
+}
+
+.tr_header td:last-child { border-right:0px; }
+
+.tr_body td {
+	border-bottom:1px solid #C6C5BC;
+	border-right:1px solid #C6C5BC;
+	background-color:#ffffff;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.tprice_table td { padding:15px; font-weight:500; }
+.tprice_table .td_title { background-color:#EBEADE; width:25%; }
+.tprice_table .td_con { color:#D96556; text-align:right; }
+
+
+/* ====================================================================================================================
+ * 처리시간
+ * ====================================================================================================================*/
+
+
+.status_date td { 
+	padding:15px; width:25%; border-top: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+.status_date .td_title { background-color:#EBEADE; border-left: 1px solid #ddd; }
+
+.status_date td span { font-weight:500; }
+
+.table_sm_view { display:none; }
+
+
+.list_cancel { text-align:right; }
+
+
+/* ====================================================================================================================
+ * 주문정보
+ * ====================================================================================================================*/
+.order_view_detail td { text-align:left; padding:5px 10px; }
+.order_view_detail td:first-child {
+	font-weight:400;
+	font-size:15px;
+	background-color:#EBEADE;
+	width:25%;
+ }
+
+ 
+/* ====================================================================================================================
+ * 태블릿 PC 혹은 가로 768px 이상
+ * ====================================================================================================================*/
+   @media (min-width: 768px) {
+       #mypage_header { padding: 63px 0px 45px 0px; width: 70%; }
+       #mypage_header h1 { font-size: 24px; padding-top: 70px; }
+       #mypage_body { padding: 40px 0px 60px 0px; width: 70%; margin: auto; }
+}
+   
+/* ====================================================================================================================
+ * 가장 작은 해상도 (핸드폰종류, 가로 480px 이하)
+ * ====================================================================================================================*/
+   @media (max-width: 767px) {
+       #mypage_header { padding: 140px 20px 45px 20px; width: auto; }
+       #mypage_body { padding: 30px 20px 20px 20px; width: auto; }
+       
+       td, th { font-size:13px; }
+       .btn-warning { font-size: 13px; }
+       
+       .tprice_table .td_title { width:40%; }
+       
+       .order_view_detail td:first-child { font-size:13px; }
+       
+       .table_sm_view { display:block; }
+       .table_lg_view { display:none; }
+       .table-responsive { border:0px; }
+   }

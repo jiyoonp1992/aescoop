@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+    <resultMap type="study.spring.aesoop.model.User" id="userMap">
+        <result property="userno" column="userno" />
+        <result property="userid" column="userid" />
+        <result property="userpw" column="userpw" />
+        <result property="username" column="username" />
+        <result property="usermail" column="usermail" />
+        <result property="usertel" column="usertel" />
+        <result property="birthdate" column="birthdate" />
+        <result property="postno" column="postno" />
+        <result property="address1" column="address1" />
+        <result property="address2" column="address2" />
+        <result property="address3" column="address3" />
+        <result property="is_out" column="is_out" />
+        <result property="is_admin" column="is_admin" />
+        <result property="regdate" column="regdate" />
+    </resultMap>
+    <resultMap type="study.spring.aesoop.model.Outuser" id="OutUserMap">
+        <result property="userno" column="userno" />
+        <result property="reason" column="reason" />
+        <result property="outdate" column="outdate" />
+    </resultMap>
+    <!-- 회원 상세 조회 -->
+    <select id="userSelectItem" parameterType="study.spring.aesoop.model.User" resultMap="userMap">
+        SELECT userno, userid, userpw, username, usermail, usertel, DATE_FORMAT(birthdate, '%Y-%m-%d') AS birthdate, postno,
+        address1, address2, address3, is_out, is_admin, DATE_FORMAT(regdate, '%Y-%m-%d') AS regdate FROM user WHERE userno=#{userno} AND is_out = 'N'
+    </select>
+    <!-- 탈퇴 회원 상세 조회 -->
+    <select id="outUserSelectItem" parameterType="study.spring.aesoop.model.User" resultMap="userMap">
+        SELECT u.userno, userid, userpw, username, usermail, usertel, DATE_FORMAT(birthdate, '%Y-%m-%d') AS birthdate, postno,
+        address1, address2, address3, is_out, is_admin, DATE_FORMAT(regdate, '%Y-%m-%d') AS regdate, o.outdate, o.reason
+        FROM user u
+        INNER JOIN outuser o
+        ON u.userno = o.userno
+        WHERE u.userno=#{userno} AND is_out='Y'
+    </select>
+    <!-- 다중행조회 -->
+    <select id="userSelectList" parameterType="study.spring.aesoop.model.User" resultMap="userMap">
+        SELECT userno, userid, userpw, username, usermail, usertel, DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate, postno, address1,
+        address2, address3, is_out, is_admin, DATE_FORMAT(regdate, '%Y-%m-%d') as regdate FROM user
+        <where>
+            is_out="N"
+            <if test="userno != null and userno != ''">
+                and userno LIKE concat('%', #{userno}, '%')
+            </if>
+            <if test="userid != null and userid != ''">
+                and userid LIKE concat('%', #{userid}, '%')
+            </if>
+            <if test="username != null and username != ''">
+                and username LIKE concat('%', #{username}, '%')
+            </if>
+            <if test="usermail != null and usermail != ''">
+                and usermail LIKE concat('%', #{username}, '%')
+            </if>
+            <if test="usertel != null and usertel != ''">
+                and usertel LIKE concat('%', #{usertel}, '%')
+            </if>
+        </where>
+        ORDER BY userno DESC
+        <if test="listCount > 0">
+            LIMIT #{offset}, #{listCount}
+        </if>
+    </select>
+    <!-- 탈퇴 다중행조회 -->
+    <select id="outUserSelectList" parameterType="study.spring.aesoop.model.User" resultMap="userMap">
+        SELECT u.userno, userid, userpw, username, usermail, usertel, DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate, postno, address1,
+        address2, address3, is_out, is_admin, DATE_FORMAT(regdate, '%Y-%m-%d') as regdate, o.outdate, o.reason
+        FROM user u
+        INNER JOIN outuser o
+        ON u.userno = o.userno
+        <where>
+            is_out = "Y"
+            <if test="userid != null and userid != ''">
+                AND userid LIKE concat('%', #{userid}, '%')
+            </if>
+            <if test="username != null and username != ''">
+                AND username LIKE concat('%', #{username}, '%')
+            </if>
+            <if test="reason != null and reason != ''">
+                AND reason LIKE concat('%', #{reason}, '%')
+            </if>
+        </where>
+        ORDER BY userno DESC
+        <if test="listCount > 0">
+            LIMIT #{offset}, #{listCount}
+        </if>
+    </select>
+    <!-- 데이터 수 조회를 위한 기능 정의 -->
+    <select id="userSelectCountAll" parameterType="study.spring.aesoop.model.User" resultType="int">
+        select count(*) from user
+        <where>
+            is_out = 'N'
+            <if test="userno != null and userno != ''">
+                and userno LIKE concat('%', #{userno}, '%')
+            </if>
+            <if test="userid != null and userid != ''">
+                and userid LIKE concat('%', #{userid}, '%')
+            </if>
+            <if test="username != null and username != ''">
+                and username LIKE concat('%', #{username}, '%')
+            </if>
+            <if test="usermail != null and usermail != ''">
+                and usermail LIKE concat('%', #{username}, '%')
+            </if>
+            <if test="usertel != null and usertel != ''">
+                and usertel LIKE concat('%', #{usertel}, '%')
+            </if>
+        </where>
+    </select>
+    <!-- 데이터 수 조회(탈퇴)를 위한 기능 정의 -->
+    <select id="outUserSelectCountAll" parameterType="study.spring.aesoop.model.Outuser" resultType="int">
+        select count(*) FROM user
+        INNER JOIN outuser
+        ON user.userno = outuser.userno
+        <where>
+            is_out = 'Y'
+            <if test="userid != null and userid != ''">
+                and userid LIKE concat('%', #{userid}, '%')
+            </if>
+            <if test="username != null and username != ''">
+                and username LIKE concat('%', #{username}, '%')
+            </if>
+            <if test="reason != null and reason != ''">
+                and reason LIKE concat('%', #{reason}, '%')
+            </if>
+        </where>
+    </select>
+    <!-- 회원가입 -->
+    <insert id="insertItem" parameterType="study.spring.aesoop.model.User" useGeneratedKeys="true" keyProperty="userno">
+        insert into user (userid, userpw, username, usermail, usertel, birthdate, postno, address1, address2, address3, regdate)
+        values (#{userid}, md5(#{userpw}), #{username}, #{usermail}, #{usertel}, #{birthdate}, #{postno}, #{address1}, #{address2}, #{address3}, now())
+    </insert>
+    <!-- 관리자 회원정보 수정 -->
+    <update id="adminUpdate" parameterType="study.spring.aesoop.model.User">
+        UPDATE user SET userid=#{userid}, username=#{username}, usermail=#{usermail},
+        usertel=#{usertel}, birthdate=#{birthdate}, postno=#{postno}, address1=#{address1},
+        address2=#{address2}, address3=#{address3}, is_out=#{is_out}, is_admin=#{is_admin} WHERE userno=#{userno}
+    </update>
+    <!-- 회원정보(이름, 생일) 수정 -->
+    <update id="updateNameItem" parameterType="study.spring.aesoop.model.User">
+        UPDATE user SET username=#{username}, birthdate=#{birthdate} WHERE userno=#{userno}
+    </update>
+    <!-- 회원정보(비번) 수정 -->
+    <update id="updatePwItem" parameterType="study.spring.aesoop.model.User">
+        UPDATE user SET userpw=md5(#{userpw}) WHERE userno=#{userno}
+    </update>
+    <!-- 회원정보(주소) 수정 -->
+    <update id="updateAddrItem" parameterType="study.spring.aesoop.model.User">
+        UPDATE user SET postno= #{postno}, address1=#{address1}, address2=#{address2}, address3=#{address3} WHERE userno=#{userno}
+    </update>
+    <!-- 탈퇴사유 -->
+    <insert id="outReasonItem" parameterType="study.spring.aesoop.model.Outuser" useGeneratedKeys="true" keyProperty="OutUserMap">
+        insert into outuser (userno, reason, outdate)
+        values (#{userno}, #{reason}, now())
+    </insert>
+    <!-- 탈퇴 -->
+    <update id="outItem" parameterType="study.spring.aesoop.model.User">
+        update user set is_out='Y' where userno=#{userno}
+    </update>
+    <!-- 로그인 -->
+    <select id="loginItem" parameterType="study.spring.aesoop.model.User" resultMap="userMap">
+        select userno, userid, userpw, username, usermail, usertel, date_format(birthdate, '%Y-%m-%d') as birthdate, postno, address1, address2, address3, is_out, is_admin, date_format(regdate, '%Y-%m-%d') as regdate from user where userid=#{userid} and userpw=md5(#{userpw}) and is_out='N' and is_admin='N'
+    </select>
+    <!-- 관리자로그인 -->
+    <select id="adminLoginItem" parameterType="study.spring.aesoop.model.User" resultMap="userMap">
+        select userno, userid, userpw, username, usermail, usertel, date_format(birthdate, '%Y-%m-%d') as birthdate, postno, address1, address2, address3, is_out, is_admin, date_format(regdate, '%Y-%m-%d') as regdate from user where userid=#{userid} and userpw=md5(#{userpw}) and is_out='N' and is_admin='Y'
+    </select>
+    <!-- 개인정보 -->
+    <select id="selectItem" parameterType="study.spring.aesoop.model.User" resultMap="userMap">
+        select userno, userid, userpw, username, usermail, usertel, date_format(birthdate, '%Y-%m-%d') as birthdate, postno, address1, address2, address3, is_out, is_admin, date_format(regdate, '%Y-%m-%d') as regdate from user where userno=#{userno} and is_out='N' and is_admin='N'
+    </select>
+    <!-- 로그인 중복검사 -->
+    <select id="idChkItem" parameterType="study.spring.aesoop.model.User" resultType="int">
+        SELECT COUNT(*) FROM user WHERE userid=#{userid}
+    </select>
+    <!-- 아이디 찾기 -->
+    <select id="idFindItem" parameterType="study.spring.aesoop.model.User" resultMap="userMap">
+        SELECT userid FROM user WHERE username=#{username} AND usermail=#{usermail}
+    </select>
+    <!-- 비번 확인 -->
+    <select id="oldPwItem" parameterType="study.spring.aesoop.model.User" resultType="int">
+        SELECT COUNT(*) FROM user WHERE userpw=md5(#{userpw})
+    </select>
+    <!-- 비밀번호 찾기 -->
+    <select id="pwFindItem" parameterType="study.spring.aesoop.model.User" resultType="int">
+        SELECT COUNT(*) FROM user WHERE userid=#{userid} AND usermail=#{usermail};
+    </select>
+    <!-- 임시 비밀번호 변경 -->
+    <update id="pwUpItem" parameterType="study.spring.aesoop.model.User">
+        UPDATE user set userpw = md5(#{userpw}) WHERE userid=#{userid} AND usermail=#{usermail};
+    </update>
+</mapper>

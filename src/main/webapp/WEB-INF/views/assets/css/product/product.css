@@ -1,0 +1,436 @@
+@charset "utf-8";
+
+
+
+/* ====================================================================================================================
+ * 페이지 공통
+ * ====================================================================================================================*/
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+/* ====================================================================================================================
+ * 이전 페이지 링크
+ * ====================================================================================================================*/
+
+.pre_page {
+	padding: 74px 15px 20px 15px;
+}
+
+.pre_page_link {
+	font-size: 14px;
+}
+
+.division:after {
+    content: "\2022";
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+    padding: 0 10px;
+    transform: translateY(-1px);
+}
+
+/* ====================================================================================================================
+ * 제품 사진과 정보
+ * ====================================================================================================================*/
+.prod_photo {
+	height: 100%;
+	padding-top: 50px;
+}
+
+.img {
+	display: block;
+	width: 300px;
+	margin: auto;
+}
+ 
+.size {
+	text-align: center;
+}
+
+.prod_info {
+	padding: 20px;
+}
+
+
+#addCartForm{
+	margin:20px 0px 20px 0px;
+}
+
+a#prod_info_cart {
+	display: block;
+	width: 100%;
+	padding: 21px 23px;
+	background-color: #333333;
+	color:#fffef1;
+	text-align: center;
+}
+
+.prod_info_char_box {
+	border-top: 2px solid #333;
+	padding: 20px 0;
+}
+
+.prod_info_char {
+	font-size: 14px;
+	position: relative;
+}
+
+.prod_info_char_title {
+	color: #252525;
+}
+
+.prod_info_char_content {
+	color: #666;
+}
+
+.prod_info_char_more {
+	display: block;
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	top:25%;
+	right: 0;
+	border: 2px solid #333;
+	text-align: center;
+	border-radius: 100px;
+	line-height: 22px;
+	vertical-align: center;
+}
+
+.prod_info_char_more img {
+	width: 100%;
+}
+
+/* ====================================================================================================================
+ * 상품정보 더보기 버튼
+ * ====================================================================================================================*/
+
+a.glyphicon {
+	display: block;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top:25%;
+	right: 0;
+	border: 2px solid #252525;
+	text-align: center;
+	border-radius: 100px;
+	line-height: 21px;
+	padding-left: 1px;
+	color: #252525;
+}
+
+/* ====================================================================================================================
+ * 상품정보 더보기 오버레이
+ * ====================================================================================================================*/
+
+.prod_info_char_more_overlay {
+	display:none;
+	position: fixed;
+	top:0;
+	left:0;
+	z-index: 3000;
+	width:100%;
+	height: 100%;
+	background-color:#f1f0e8;
+}
+
+.prod_info_char_more_overlay_text {
+	position: absolute;
+	top:26%;
+	left:0;
+	width: 60%;
+	margin: 0 20%;
+}
+
+
+.prod_info_char_more_overlay h3{
+	font-size: 25px;
+	font-weight: 300;
+}
+
+.prod_info_char_more_overlay p {
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.prod_info_char_more_overlay blockquote {
+	font-size: 16px;
+	font-weight: 400;
+}
+/* ====================================================================================================================
+ * 상품정보 더보기 오버레이 나가기 버튼
+ * ====================================================================================================================*/
+.x_icon {
+	display: block;
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	right: 34px;
+	top: 34px;
+}
+
+.x_icon_img {
+	width: 100%;
+}
+/* ====================================================================================================================
+ * 선물 포장 안내 문구
+ * ====================================================================================================================*/
+
+.gift {
+	padding: 20px;
+	font-size: 14px;
+	background-color: #f3f1e4;
+}
+
+.gift h2{
+	color: #333;
+	font-weight: 300;
+}
+
+.gift p {
+	color: #666;
+	font-weight: 100;
+}
+
+/* ====================================================================================================================
+ * 샘플 이미지
+ * ====================================================================================================================*/
+
+.sample_img{
+	display: block;
+	padding: 0;
+}
+
+/* ====================================================================================================================
+ * 사용법 소개
+ * ====================================================================================================================*/
+
+.how_to_use {
+	padding: 40px 20px;
+}
+
+.how_to_use h2 {
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.how_to_use_main {
+	font-size: 25px;
+	font-weight: 400;
+	margin-bottom: 20px;
+}
+
+.how_to_use ul {
+	border-top: 2px solid #333;
+	font-size: 14px;
+}
+
+
+.how_to_use ul li {
+	padding: 18px 0;
+	border-bottom: 1px solid #d5d4c9;
+}
+
+.how_to_use ul li h3 {
+	color: #333;
+}
+
+.how_to_use ul li p {
+	color: #666;
+	font-weight: 300;
+}
+
+/* ====================================================================================================================
+ * 후기
+ * ====================================================================================================================*/
+
+.review_none{ min-height:140px; }
+
+.review {
+	padding: 50px 0;
+}
+
+.review_input {
+	margin-bottom: 50px;
+	padding: 0 5%;
+}
+
+.review h2 {
+	font-size: 25px;
+	margin-bottom: 20px;
+}
+
+.review textarea {
+	width: 100%;
+	height: 100px;
+	border: none;
+	border-bottom: 1px solid #d5d4c9;
+	background-color: #fffef1;
+	resize:none;
+	font-size: 14px;
+}
+
+.review textarea:focus {
+	outline: 0;
+	border-bottom: 1px solid #252525;
+}
+
+.review button {
+	background-color: #fffef1;
+	border: 0;
+	outline: none;
+}
+
+.review button:hover {
+		border-bottom: 1px solid #d5d4c9;
+}
+
+.review button:active {
+		border-bottom: 1px solid #252525;	
+}
+
+.review_output {
+	padding: 0 5%;
+}
+
+.review_userid {
+	font-weight: 400;
+	padding-right: 10px;
+}
+
+.review_output_li {
+	margin-bottom: 20px;
+}
+
+/**--------------- 별점 시작 ---------------*/
+.review_rating{
+	display: inline-block;
+}
+
+.rating {
+	display: inline-block;
+	vertical-align:middle;
+}
+
+.rating>input {
+	display: none;
+	margin: 0 0px;
+}
+
+
+.rating>label:before {
+	display: inline-block;
+	content: "\f005";
+	background: url('../../img/star.png') 0 0 no-repeat;
+	width: 17px;
+	color: rgba(0, 0, 0, 0);
+	background-size: 17px;
+}
+
+.rating>input[type="radio"]+label {
+	color: #999;
+	float: right;
+	margin: 0 1px;
+}
+
+.rating>input:checked ~ label {
+	content: "\f005";
+	display: inline-block;
+	background: url('../../img/star-on.png') 0 0 no-repeat;
+	width: 17px;
+	padding: 0;
+	background-size: 17px;
+	z-index: 5;
+}
+
+.rating>input:checked ~ label:before {
+	background: none;
+}
+/**--------------- 별점 끝 ---------------*/
+
+.rating>img {
+	display: inline-block;
+	width: 17px;
+	
+}
+
+/* ====================================================================================================================
+ * 상품정보 더보기 버튼
+ * ====================================================================================================================*/
+
+/* ====================================================================================================================
+ * 리뷰 더보기 오버레이
+ * ====================================================================================================================*/
+
+.more_view_overlay {
+	display:none;
+	position: fixed;
+	top:0;
+	left:0;
+	z-index: 3000;
+	width:100%;
+	height: 100%;
+	background-color:#f1f0e8;
+}
+
+.more_view_text {
+	position: absolute;
+	top:26%;
+	left:0;
+	width: 60%;
+	margin: 0 20%;
+}
+
+
+.more_view_overlay h3{
+	font-size: 25px;
+	font-weight: 300;
+}
+
+.more_view_overlay p {
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.more_view_overlay blockquote {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+
+/* ====================================================================================================================
+ * 페이지 번호 표시(페이지네이션)
+ * ====================================================================================================================*/
+.pagination_center { text-align:center; }
+
+.pagination li a { color:#333333; }
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #333333;
+    border-color: #333333;
+}
+
+
+/* ====================================================================================================================
+ * 함께 사용하면 좋은 제품
+ * ====================================================================================================================*/
+
+.with {
+	padding: 80px 20px;
+}
+
+.with h2 {
+	font-size: 25px;
+}
+
+.with p {
+	font-size: 14px;
+	font-weight: 200;
+}

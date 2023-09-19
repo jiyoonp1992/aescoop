@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+body {
+  padding:0;
+  margin:0;
+  background-color: #fffef2;
+  overflow-x:hidden; /* 스크롤 없애기(1) */
+  -ms-overflow-style: none; /* 스크롤 없애기(1) */
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+  background-color:#252525;
+}
+
+* { line-height:1.7; }
+
+/* 스크롤 없애기(2) */
+::-webkit-scrollbar { display: none; }
+
+#cart_container { padding:30px 20px 270px 20px; }
+
+
+/* ====================================================================================================================
+ * 나가기 버튼
+ * ====================================================================================================================*/
+.cart-exit-button {float:right;}
+
+.cart-exit-button span {
+	position: absolute;
+    height: 2px;
+    width: 14px;
+    background-color: #999999;
+    top: 37px;
+    right:30px;
+    transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+}
+
+.cart-exit-button span:nth-child(1) { transform: rotate(45deg); }
+.cart-exit-button span:nth-child(2) { transform: rotate(-45deg); }
+
+
+/* ====================================================================================================================
+ * 카트 헤더
+ * ====================================================================================================================*/
+.cart_header { border-bottom: 2px solid #3B3B3A; padding-bottom:20px; }
+.cart_title { color:#BCBBB4; font-size:18px; }
+
+
+/* ====================================================================================================================
+ * 카트 제품명, 수량
+ * ====================================================================================================================*/
+.cart_name_number { padding:25px 0px 10px 0px; }
+
+.cart_name {
+	color:#F8FEF2;
+	font-size:1.0em;
+	display:block;
+	width:50%;
+	padding-top:3px;
+}
+
+#cart_number {
+	width:60px;
+	background-color:#252525;
+	color:#FFFFFF;
+	border:1px solid #3B3B3A;
+}
+
+#cart_number option { background-color:#ffffff; color:#333333; }
+#cart_number:focus { box-shadow:none; }
+#cart_number { input-border-focus:#252525; }
+
+.cart_none { text-align:center; color:#BCBBB4; padding-top:55px;}
+
+/* ====================================================================================================================
+ * 카트 용량, 삭제, 가격
+ * ====================================================================================================================*/
+.cart_ml_rm_price { padding:10px 0 25px 0; color:#BCBBB4; font-size:0.8em; border-bottom: 1px solid #3B3B3A; }
+.cart_ml { width:50px; }
+.cart_rm { color:#BCBBB4; }
+.cart_rm:hover { color:#ffffff; }
+
+.cart_ml_rm_price:last-child {border-bottom:0px;}
+
+.prod-amount { text-align:right; }
+.prod-amount p { color:#BCBBB4; font-size:0.8em; padding: 6px 0px 0px 15px; }
+.prod-amount input { width:10%; margin:0px 7px; }
+.prod-amount a { padding-top:7px; color:#BCBBB4; }
+.prod-amount a:hover { text-decoration:none; }
+
+
+/* ====================================================================================================================
+ * 카트 하단
+ * ====================================================================================================================*/
+#cart_footer {
+	position:fixed;
+	bottom:0;
+	left:0;
+	border-top:2px solid #3B3B3A;
+	padding:30px 0px 50px 0px;
+	width:100%;
+	background-color:#252525;
+}
+
+.cart_pd {
+	padding:0px 20px;
+	color:#BCBBB4; font-size:0.8em;
+}
+
+.cart_ft_txt { display:block; padding-bottom:25px; }
+.cart_ft_txt2 { font-size:1.2em; }
+.cart_ft_price {color:#ffffff; font-size:2.0em; font-weight:500;}
+
+.btn-buy { background-color:#EAEADF; color:#333333; width:100%; margin-top:30px; padding:20px 0; font-size:16px;}
+.btn-buy:hover { background-color:#FFFEF2; color:#333333; width:100%;}

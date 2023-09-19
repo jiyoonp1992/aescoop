@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CartMapper">
+	<resultMap type="study.spring.aesoop.model.Cart" id="cartMap">
+		<result property="cartno" column="cartno"/>
+		<result property="userno" column="userno"/>
+		<result property="prodno" column="prodno"/>
+		<result property="amount" column="amount"/>
+		<result property="pname" column="pname"/>
+		<result property="size" column="size"/>
+		<result property="price" column="price"/>
+		<result property="has_orderno" column="has_orderno"/>
+	</resultMap>
+	
+	<!-- 카트에 담은 제품 목록 (주문 전이기 때문에 has_orderno은 0) -->
+	<select id="selectList" parameterType="study.spring.aesoop.model.Cart" resultMap="cartMap">
+    	select pname, size, price, c.amount, cartno
+		from cart c
+		inner join product p
+		on c.prodno = p.prodno
+		where c.userno = #{userno} and has_orderno = 0;
+    </select>
+    
+    <!-- 카트에서 삭제 -->
+	<delete id="deleteCart" parameterType="study.spring.aesoop.model.Cart">
+		DELETE FROM cart WHERE cartno=#{cartno};
+	</delete>
+    
+    <!-- 카트에서 주문하기 페이지로 이동 (수량, 금액 수정) -->
+	<update id="updateCart" parameterType="study.spring.aesoop.model.Cart">
+		UPDATE cart SET amount=#{amount} WHERE cartno=#{cartno}
+	</update>
+	
+	<!-- 카트 주문하기 (orderno 업데이트)  -->
+	<update id="updateCart2" parameterType="study.spring.aesoop.model.Cart">
+		update cart set has_orderno = #{has_orderno} where userno = #{userno} and has_orderno = 0
+	</update>
+	
+	
+	<!-- 카트에 담은 제품 목록 (주문 전이기 때문에 has_orderno은 0) -->
+	<select id="selectCartCount" parameterType="study.spring.aesoop.model.Cart" resultType="int">
+    	select count(*) from cart where userno = #{userno} and has_orderno = 0 and prodno = #{prodno};
+    </select>
+	
+	<!-- 데이터 저장을 위한 기능 정의 -->
+	<insert id="addCartItem" parameterType="study.spring.aesoop.model.Cart" useGeneratedKeys="true" keyProperty="cartno">
+		INSERT INTO cart (
+			userno, prodno, amount, has_orderno
+		) VALUES (
+			#{userno}, #{prodno}, 1, 0
+		)
+	</insert>
+	
+	<!-- 주문건수 확인 -->
+	<select id="selectReviewCount" parameterType="study.spring.aesoop.model.Review" resultType="int">
+    	select count(*) from cart where userno = #{userno} and has_orderno > 0 and prodno = #{prodno};
+    </select>
+    
+    <!-- 유저 리뷰 작성을 위한 데이터 수 조회 -->
+	<select id="getOrderCount" parameterType="study.spring.aesoop.model.Cart" resultType="int">
+		SELECT count(*) FROM cart c
+		INNER JOIN user u
+		ON u.userno=c.userno
+		INNER JOIN order_list o
+		ON o.userno=u.userno
+		where c.userno = #{userno}
+		and has_orderno > 0
+		and prodno = #{prodno}
+		and orderstatus like concat('%', '배송완료', '%');
+   </select>
+</mapper>

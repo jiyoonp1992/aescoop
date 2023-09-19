@@ -1,0 +1,199 @@
+body {
+  padding:0;
+  margin:0;
+  background-color: #F6F5E8;
+  overflow-x:hidden; /* 스크롤 없애기(1) */
+  -ms-overflow-style: none; /* 스크롤 없애기(1) */
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+}
+
+* { line-height:1.7; }
+
+/* 스크롤 없애기(2) */
+::-webkit-scrollbar { display: none; }
+
+h1, h2, h3, h4, h5, h6, p {
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+}
+
+a, a:hover { text-decoration:none; color:#333333; }
+
+li { padding:0; margin:0; }
+
+li a:hover { text-decoration:none; }
+
+
+.content {padding:140px 0px 70px 0px; width:70%; margin:auto; }
+
+
+
+/* ====================================================================================================================
+ * 상단 고정 카트
+ * ====================================================================================================================*/
+.page_top_cart {
+  background-color:#000000;
+  color:#ffffff;
+  padding:0px;
+  margin:0px;
+  padding:10px 20px 17px 20px;
+  cursor:pointer;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+}
+
+.page_top_cart div:first-child {
+  color:#BCBBB4;
+  font-size:14px;
+  line-height:100%;
+  padding:15px 0px 0px 0px;
+}
+
+.page_top_cart div:last-child {
+  color:#ffffff;
+  font-weight:500;
+  font-size:1.5em;
+}
+
+.badge {
+	font-weight:300;
+	color:##FFFEF2;
+	background-color:#333333;
+	padding: 5px 7px;
+}
+
+
+/* ====================================================================================================================
+ * 내용
+ * ====================================================================================================================*/
+ .order_logo img {
+  height:27px;
+}
+
+.orderer {
+	font-size:1.5em;
+	font-weight:400;
+	padding:60px 0px 30px 0px;
+}
+
+.orderer2 {
+	font-size:1.5em;
+	font-weight:400;
+	padding:20px 0px 15px 0px;
+}
+
+.cart_form_title { font-size:0.9em; color:#666866; }
+.cart_form_title2 { font-size:0.9em; color:#666866; padding-bottom:15px; }
+
+.form-group { padding-bottom:40px; }
+
+.content .form-control {
+	background:none;
+	border:0px;
+	border-bottom:1px solid #666666;
+	box-shadow:0px;
+	transition:none;
+	padding: 25px 0px;
+	font-size:23px;
+	-webkit-box-shadow: none;
+}
+
+.btn-100 { width:100%; padding:20px 0; }
+
+.form-control-add1,
+.form-control-add3,
+.form-control-add4,
+.form-control-add5 {
+	background:none;
+	border:0px;
+	border-bottom:1px solid #666666;
+	box-shadow:0px;
+	margin-bottom:7px;
+	padding:5px 0px;
+	transition:none;
+	font-size:20px;
+	-webkit-box-shadow: none;
+}
+
+.form-control-add1 { width:20%; }
+.form-control-add3 { width:40%; }
+.form-control-add4 { width:45%; }
+.form-control-add5 { width:35%; }
+
+.box_free {
+	background-color:#FFFEF2;
+	padding:30px;
+}
+
+label {
+	font-weight:300; padding-left:7px;
+}
+
+.free_txt {
+	padding:10px 0px 0px 23px;
+	font-size:14px;
+	line-height:130%;
+	color:#666666;
+}
+
+textarea {
+	width:100%;
+	background-color:#FFFEF2;
+	border:1px solid #666666;
+}
+
+.order_checkbox { padding:70px 0px 30px 0px; }
+
+/* ====================================================================================================================
+ * 에러 메시지
+ * ====================================================================================================================*/
+/* 필수항목 표시를 위한 `*` */
+.identify {
+	font-size: 14px;
+	color:#D96556;
+}
+
+/* 에러 메시지에 대한 글자 색상 */
+.error {
+	color: red;
+}
+
+/* 에러가 발생한 <input>태그 */
+input.error {
+	background-color: #ffff00;
+}
+
+/* 에러메시지가 표시중인 <label>태그 */
+label.error {
+	font-size: 10px;
+	display: inline-block;
+	padding: 5px 10px;
+	margin: 0;
+}
+
+/* ====================================================================================================================
+ * 태블릿 PC 혹은 가로 768px 이상
+ * ====================================================================================================================*/
+@media (max-width: 768px) and (max-width: 991px) {
+	.content {padding:130px 20px 30px 20px; width:auto; }
+    .form-control-add1 { width:40%; }
+	.form-control-add3 { width:100%; }
+	.form-control-add4 { width:100%; }
+	.form-control-add5 { width:100%; }
+}
+
+
+/* ====================================================================================================================
+ * 가장 작은 해상도 (핸드폰종류, 가로 480px 이하)
+ * ====================================================================================================================*/
+@media (max-width: 767px) {
+	.content {padding:130px 20px 30px 20px; width:auto; }
+    .form-control-add1 { width:40%; }
+	.form-control-add3 { width:100%; }
+	.form-control-add4 { width:100%; }
+	.form-control-add5 { width:100%; }
+ }

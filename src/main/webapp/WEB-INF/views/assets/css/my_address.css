@@ -1,0 +1,57 @@
+/* ========== 마이페이지 상단 ========== */
+   #mypage_box { background-color: #f6f5e7; }
+   #mypage_header { padding: 140px 0px 70px 0px; width: 70%; margin: auto; }
+   #mypage_header h1 { font-size: 24px; }
+   form { margin-top:20px; }
+   .clearfix:after { content: " "; display: table; clear: both; }
+/* ========== 마이페이지 상단 드롭다운 ========== */
+   #mypage_header .dropdown { height: 53px; border: 1px solid #D6D5CC; padding: 10px; margin: 10px auto 0 auto; }
+   #mypage_header .dropdown a { width : auto; display:block; }
+   #mypage_header .dropdown-menu { width: 100%; }
+   .panel, .panel-group .panel-heading+.panel-collapse>.panel-body { border: none; background-color: #FFFEF2; }
+/* ========== 마이페이지 드롭다운 화살표 ========== */
+   b { margin-top: 7px; }
+/* ========== 마이페이지 하단 주소록 내용 ========== */
+   #address, #address_billing { padding: 0 0 48px 0; }
+   #address_body, #address_bil_body { font-size: 1.5rem; }
+   .panel-group>.panel { -webkit-box-shadow: none; box-shadow: none;margin-top:15px;}
+   #addressInfo .glyphicon { margin: 0 10px 0 0; }
+   .bill_none {margin-bottom:20px;}
+/* ========== 마이페이지 하단 주소록 찾기 ========== */
+   .form-group {margin: 30px 0 10px 0;}
+   .bil_add_address button, .add_address button{padding:5px 0; font-size:20px; margin:20px 0;}
+   .form-group .form-control-add1, .form-group .form-control-add3, .form-group .form-control-add4, .form-group .form-control-add5 {
+    font-size: 1.5rem; background-color: transparent; border-style: none; border-bottom: 1px solid #D6D5CC; box-shadow: none; }
+    .form-group .form-control-add1:focus, .form-group .form-control-add3:focus, .form-group .form-control-add4:focus, .form-group .form-control-add5:focus {
+    font-size: 1.5rem; background-color: transparent; border-style: none; border-bottom: 1px solid #D6D5CC; box-shadow: none; }
+/* ========== 마이페이지 하단 주소록 하단 내용 추가 ========== */
+    input[type="text"], input[type="password"] { font-size: 1.5rem; background-color: transparent; border-style: none; border-bottom: 1px solid #D6D5CC; box-shadow: none; padding: 0; }
+    input[type="text"]:focus, input[type="password"]:focus { background-color: transparent; border-style: none; border-bottom: 1px solid #D6D5CC; box-shadow: none; }
+   /* ====================================================================================================================
+ * 태블릿 PC 혹은 가로 768px 이상
+ * ====================================================================================================================*/
+   @media (min-width: 768px) {
+       #mypage_header { padding: 63px 0px 45px 0px; width: 70%; }
+       #mypage_header h1 { font-size: 24px; padding-top: 70px; }
+       #addressInfo { padding: 40px 0px 20px 0px; width: 70%; margin: auto; }
+       .form-control-add1 { width:20%; }
+       .form-control-add3 { width:40%; }
+       .form-control-add4 { width:45%; }
+       .form-control-add5 { width:35%; }
+       .form-group .btn{ width:17%;height:30px; padding:0;}
+       .bil_add_address button, .add_address button{width:17%;}
+   }
+   /* ====================================================================================================================
+ * 가장 작은 해상도 (핸드폰종류, 가로 480px 이하)
+ * ====================================================================================================================*/
+   @media (max-width: 767px) {
+       #mypage_header { padding: 140px 20px 45px 20px; width: auto; }
+       #addressInfo { padding: 30px 20px 20px 20px; width: auto; }
+       .form-control-add1 { width:50%; }
+       .form-control-add3 { width:70%; }
+       .form-control-add4 { width:75%; }
+       .form-control-add5 { width:65%; }
+       .form-group .btn{ width:27%;height:30px; padding:0;}
+       .bil_add_address button, .add_address button{width:27%;}
+       h1{font-size:20px;}
+   }

@@ -1,0 +1,169 @@
+/** body 태그에 기본적으로 적용된 padding, margin을 off시킨다. */
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Noto Sans KR', sans-serif;
+  	font-weight: 300;
+  	background-color: #fffef2;
+}
+
+/** 부모를 기준으로 크기를 갖기 때문에, body와 html에게도 크기 설정 */
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+a, a:hover { text-decoration:none; color:#333333; }
+
+
+
+
+/* ====================================================================================================================
+ * 로고, 메뉴
+ * ====================================================================================================================*/
+#menu { height:100%; width:15%; background-color:#333333; position:fixed; top:0; left:0; }
+
+
+/** 로고 ---------------------------------------------------------------------------------------------*/
+.menu_logo { padding:20px 15px 20px 15px; }
+.menu_logo img { width:100px; }
+
+
+/** 메뉴 시작 ----------------------------------------------------------------------------------------*/
+.panel-group .panel { border-radius: 0px; }
+
+.panel {
+	background-color: #484848;
+    border: none;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.panel a { color:#DFDFDF; }
+.panel a:hover { color:#ebebeb; font-weight:400; }
+
+.panel-heading {
+    padding: 13px 15px;
+    border-bottom: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.panel-default>.panel-heading {
+    background-color: #333333;
+    border:0px;
+}
+
+.panel-default>.panel-heading a {
+    color: #ffffff;
+    font-size:15px;
+    font-weight:400;
+    text-decoration:none;
+}
+
+.panel-group .panel+.panel { margin-top: 0px; }
+
+.panel-body a { display:block; padding:5px 0px; }
+
+.panel-group .panel-heading+.panel-collapse>.panel-body, .panel-group { border-top:0px; }
+
+.portfolio_text { line-height: 18px; font-size:14px; padding: 15px 15px; color:#C5C5C5; position: absolute; bottom: 0px; }
+
+
+/** 클릭된 페이지의 메뉴 시작 -----------*/
+.acc-active {
+	background-color:#A48973 !important;
+	border-right:8px solid #7E6652 !important;
+	font-weight:400;
+}
+
+.acc-active-panel { background-color: #EBEBEB; border-right:8px solid #D4D4D4; }
+
+.acc-active-panel a { color:#666666; }
+.acc-active-panel a:hover { color:#000000; font-weight:400; }
+
+#acc-active-a { font-weight:400; color:#000000; }
+/** 클릭된 페이지의 메뉴 끝 -----------*/
+
+
+#mytab .active {
+	color: #ffffff;
+    background-color: #ACAB9A !important;
+}
+
+/** 메뉴 끝  ----------------------------------------------------------------------------------------*/
+
+
+.h10 { height:10px; }
+.h20 { height:20px; }
+.h30 { height:30px; }
+
+
+
+/* ====================================================================================================================
+ * 내용
+ * ====================================================================================================================*/
+#content { width:100%; height:100%; }
+
+#content_pd { margin-left:15%; padding:20px 40px 40px 40px;}
+
+.btn_right { text-align:right; }
+.btn-info { color:#666666; font-weight:300; font-size:13px; }
+.btn-info:hover { color:#ffffff; background-color:#333333; }
+.btn-info:active { color:#ffffff !important; background-color:#333333 !important; }
+
+.title { font-size:26px; padding:18px 0px 30px 0px; }
+
+.form-control {
+	box-shadow:0px;
+	transition:none;
+	-webkit-box-shadow: none;
+}
+
+#text_form { width:100%; height:100px; }
+#text_form2 { width:100%; height:600px; }
+#text_form3 { width:100%; height:300px; }
+
+/** 검색 시작 ----------------------------------------------------------------------------------------*/
+.search_box {background-color:#EBEADE; padding:25px;}
+
+.nav>li>a {
+    margin-right:5px;
+    text-align:center;
+    background-color:#DCDBD1;
+}
+
+.nav>li>a:hover {
+    color: #fff;
+    background-color:#ACAB9A;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #fff;
+    background-color:#ACAB9A;
+}
+
+
+/** 검색 끝  ----------------------------------------------------------------------------------------*/
+
+
+/** 쓰기 시작 ----------------------------------------------------------------------------------------*/
+.write_box {background-color:#EBEADE; padding:25px;}
+/** 쓰기 끝  ----------------------------------------------------------------------------------------*/
+
+
+/* ====================================================================================================================
+ * 페이지 번호 표시(페이지네이션)
+ * ====================================================================================================================*/
+.pagination_center { text-align:center; }
+
+.pagination li a { color:#333333; }
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #333333;
+    border-color: #333333;
+}

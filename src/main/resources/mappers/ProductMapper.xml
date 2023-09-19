@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ProductMapper">
+
+    <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+    <resultMap id="productMap"
+        type="study.spring.aesoop.model.Product">
+        <result property="prodno"   column="prodno" />
+        <result property="subcateno"     column="subcateno" />
+        <result property="sub_category"     column="sub_category" />
+        <result property="pname"   column="pname" />
+        <result property="content" column="content" />
+        <result property="price"      column="price" />
+        <result property="size" column="size" />
+        <result property="stock"     column="stock" />
+        <result property="file"      column="file" />
+        <result property="file2"      column="file2" />
+        <result property="skintype"		column="skintype" />
+        <result property="feels"		column="feels" />
+        <result property="amount"		column="amount" />
+        <result property="texture"		column="texture" />
+        <result property="ingredient"	column="ingredient" />
+        <result property="scent"			column="scent" />
+        <result property="directions" 	column="directions" />
+        <result property="is_view" column="is_view"/>
+        <result property="category" column="category"/>
+        <result property="cateno" column="cateno"/>
+    </resultMap>
+    
+    
+    <!-- 제품 추가를 위한 기능 정의 -->
+    <insert id="addProduct" parameterType="study.spring.aesoop.model.Product" useGeneratedKeys="true" keyProperty="prodno">
+    	insert into product (prodno, subcateno, pname, content, price, size, stock, file, skintype, feels, amount, texture, ingredient, scent, directions, file2)
+    	values (#{prodno}, #{subcateno}, #{pname}, #{content}, #{price}, #{size}, #{stock}, #{file}, #{skintype}, #{feels}, #{amount}, #{texture}, #{ingredient}, #{scent}, #{directions}, #{file2})
+    </insert>
+	
+	
+	<!-- 제품 수 조회를 위한 기능 정의 -->
+	<select id="productCount" parameterType="study.spring.aesoop.model.Product" resultType="int">
+		SELECT count(*)
+		from product p
+		inner join sub_category sc
+		on p.subcateno = sc.subcateno
+		inner join category c
+		on sc.cateno = c.cateno
+		<where>
+            <if test="prodno != null and prodno != ''">
+                prodno like concat('%', #{prodno}, '%')
+            </if>
+            <if test="pname != null and pname != ''">
+                pname like concat('%', #{pname}, '%')
+            </if>
+            <if test="is_view !='' and is_view != null">
+                and is_view=#{is_view}
+            </if>
+            <if test="category != '' and category != null and category != '전체보기'">
+                and category like concat ('%', #{category}, '%')
+            </if>
+        </where>
+	</select>
+   
+   
+   <!-- 제품 상세 조회1 -->
+	<select id="getProductItem" parameterType="study.spring.aesoop.model.Product" resultMap="productMap">
+		SELECT prodno, c.cateno, category, p.subcateno, sc.sub_category, pname, content, price, size, stock, file, is_view, skintype, feels, amount, texture, ingredient, scent, directions, file2
+		from product p
+		inner join sub_category sc
+		on p.subcateno = sc.subcateno
+		inner join category c
+		on sc.cateno = c.cateno
+		WHERE prodno=#{prodno}
+		</select>
+   
+   
+   <!-- 제품 상세 조회2 -->
+	<select id="getProductList" parameterType="study.spring.aesoop.model.Product" resultMap="productMap">
+		SELECT prodno, p.subcateno, pname, content, price, size, stock, file, is_view
+		FROM product WHERE prodno = #{prodno}
+		ORDER BY pname DESC
+		<if test="listCount > 0">
+			limit #{offset}, #{listCount}
+		</if>
+	</select>
+   
+   
+   <!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectList" parameterType="study.spring.aesoop.model.Product" resultMap="productMap">
+		select prodno, file, pname, is_view, size, price, skintype, feels 
+		from product p
+		inner join sub_category sc
+		on p.subcateno = sc.subcateno
+		inner join category c
+		on sc.cateno = c.cateno
+		<where>
+            <if test="prodno != null and prodno != ''">
+                prodno like concat('%', #{prodno}, '%')
+            </if>
+            <if test="pname != null and pname != ''">
+                pname like concat('%', #{pname}, '%')
+            </if>
+            <if test="is_view !='' and is_view != null">
+                and is_view=#{is_view}
+            </if>
+            <if test="category != '' and category != null and category != '전체보기'">
+                and category like concat ('%', #{category}, '%')
+            </if>
+        </where>
+		ORDER BY prodno DESC
+		
+		<if test="listCount > 0">
+			limit #{offset}, #{listCount}
+		</if>
+	</select>
+
+
+	<!-- 제품 변경 -->
+	<update id="editProduct" parameterType="study.spring.aesoop.model.Product">
+		UPDATE product set subcateno=#{subcateno},content=#{content}, prodno=#{prodno}, pname=#{pname}, price=#{price}, size=#{size}, stock=#{stock},
+		skintype=#{skintype}, feels=#{feels}, amount=#{amount}, texture=#{texture}, ingredient=#{ingredient}, scent=#{scent}, directions=#{directions}, is_view=#{is_view}
+		WHERE prodno=#{prodno} 
+	</update>
+   
+	<!-- 제품 삭제 -->
+	<update id="deleteProduct" parameterType="study.spring.aesoop.model.Order_List">
+		DELETE FROM product WHERE prodno=#{prodno}
+	</update>
+	
+	 <!-- 데이터 삭제를 위한 기능 정의 -->
+    <delete id="deleteItem"
+        parameterType="study.spring.aesoop.model.Product">
+        DELETE FROM product WHERE prodno=#{prodno}
+    </delete>
+    
+    <!-- 제품 삭제를 위한 사전 작업 (링크된 카트와 리뷰를 없애준다.) -->
+	<update id="unsetProduct1"
+	 parameterType="study.spring.aesoop.model.Product">
+		UPDATE cart SET prodno=null WHERE prodno=#{prodno}
+	</update>
+	
+	<update id="unsetProduct2" 
+	parameterType="study.spring.aesoop.model.Product">
+		UPDATE review SET prodno=null WHERE prodno=#{prodno}
+	</update>
+	
+	
+	<!-- 유저페이지 제품 목록 -->
+	<select id="getUserProductList" parameterType="study.spring.aesoop.model.Product" resultMap="productMap">
+		select prodno, file, pname, is_view, size, price, skintype, feels 
+		from product p
+		inner join sub_category sc
+		on p.subcateno = sc.subcateno
+		inner join category c
+		on sc.cateno = c.cateno
+		WHERE sc.cateno=#{cateno}
+		<if test="subcateno != null and subcateno != ''">
+			and sc.subcateno=#{subcateno}
+		</if>
+      
+		ORDER BY prodno DESC
+       
+		<if test="listCount > 0">
+			limit #{offset}, #{listCount}
+		</if>
+	</select>
+	
+	<!-- 메인 제품 슬라이드의 다중행 조회를 위한 기능 정의 -->
+	<select id="selectSlide" parameterType="study.spring.aesoop.model.Product" resultMap="productMap">
+		select prodno, pname, content, p.file
+		from product p
+		inner join sub_category sc
+		on p.subcateno = sc.subcateno
+		inner join category c
+		on sc.cateno = c.cateno
+		WHERE p.subcateno = #{subcateno}
+		ORDER BY prodno DESC
+		LIMIT 0, 8
+	</select>
+</mapper>

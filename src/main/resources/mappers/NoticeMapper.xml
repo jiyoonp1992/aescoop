@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="NoticeMapper">
+
+    <!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+    <resultMap id="NoticeMap"
+        type="study.spring.aesoop.model.Notice">
+        <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+        <result property="notino" column="notino" />
+        <result property="title" column="title" />
+        <result property="content" column="content" />
+        <result property="date" column="date" />
+        <result property="file" column="file" />
+    </resultMap>
+
+    <!-- 단일행 조회를 위한 기능 정의 -->
+    <select id="selectItem"
+        parameterType="study.spring.aesoop.model.Notice"
+        resultMap="NoticeMap">
+        SELECT notino, title, content, view, date, file FROM notice WHERE notino=#{notino};
+    </select>
+
+    <!-- 다중행 조회를 위한 기능 정의 -->
+    <select id="selectList"
+        parameterType="study.spring.aesoop.model.Notice"
+        resultMap="NoticeMap">
+        SELECT notino, title, content, view, date FROM notice
+        
+        <where>
+            <if test="title != null and title != ''">
+                title LIKE concat('%', #{title}, '%')
+            </if>
+            
+            <if test="content != null and content != ''">
+                OR content LIKE concat('%', #{content}, '%')
+            </if>
+        </where>
+        
+        ORDER BY notino DESC
+        
+        <if test="listCount > 0">
+            LIMIT #{offset}, #{listCount}
+        </if>
+    </select>
+
+    <!-- 데이터 저장을 위한 기능 정의 -->
+    <insert id="insertItem"
+        parameterType="study.spring.aesoop.model.Notice"
+        useGeneratedKeys="true"
+        keyProperty="notino">
+        INSERT INTO notice (title, content, view, date, file) VALUES (#{title}, #{content}, #{view}, now(), #{file});
+    </insert>
+
+    <!-- 데이터 삭제를 위한 기능 정의 -->
+    <delete id="deleteItem"
+        parameterType="study.spring.aesoop.model.Notice">
+        DELETE FROM notice WHERE notino=#{notino};
+    </delete>
+
+    <!-- 데이터 갱신을 위한 기능 정의 -->
+    <update id="updateItem"
+        parameterType="study.spring.aesoop.model.Notice">
+        UPDATE notice SET title=#{title}, content=#{content}, view=#{view}, file=#{file}
+        WHERE notino=#{notino};
+    </update>
+    
+    <!-- 조회수 갱신을 위한 기능 정의 -->
+    <update id="ViewCount"
+        parameterType="study.spring.aesoop.model.Notice">
+        UPDATE notice SET view=view+1
+        WHERE notino=#{notino};
+    </update>
+    
+    <!--
+        조건에 맞는 데이터 수를 집계하여 int 타입으로 반환한다.
+        count, max, min, sum, avg 함수를 사용한 경우 Mapper에서는
+        resultMap이 아닌 resultType으로 반환한다.
+    -->
+    <select id="selectCountAll" 
+            parameterType="study.spring.aesoop.model.Notice"
+            resultType="int">
+        SELECT COUNT(*) FROM notice
+        
+        <where>
+            <if test="title != null and title != ''">
+                title LIKE concat('%', #{title}, '%')
+            </if>
+            
+            <if test="content != null and content != ''">
+                OR content LIKE concat('%', #{content}, '%')
+            </if>
+        </where>
+    </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

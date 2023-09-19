@@ -1,0 +1,103 @@
+/** 클릭된 페이지의 메뉴 시작 -----------*/
+.admenu04 { background-color:#A48973 !important; border-right:8px solid #7E6652 !important; font-weight:400; }
+.admenu_pn04 { background-color: #EBEBEB; border-right:8px solid #D4D4D4; display: block; }
+.admenu_pn04 a { color:#666666; }
+.admenu_pn04 a:hover { color:#000000; font-weight:400; }
+#admenu_a0401 { font-weight:400; color:#000000; }
+/** 클릭된 페이지의 메뉴 끝 -----------*/
+
+/* ====================================================================================================================
+ * 폼
+ * ====================================================================================================================*/
+.c_search { padding:15px 0px 0px 0px; }
+.form_title { font-size:17px; font-weight:400; padding:5px 0px 0px 0px; }
+.form-group { padding-right:5px; margin-bottom:0px; }
+
+
+.col-md-11 { padding-left: 0; padding-right:0px; }
+
+input[type='text'], input[type='email'], input[type='date'], input[type='tel'] { width:60%; }
+
+#list_img { padding-top:5px; }
+
+.radio-pd { padding-top:8px; }
+
+.identify { color:#D96556; }
+
+#notice_content { width:100%; height:500px; border:none; padding: 6px 12px;}
+
+#notice_img {
+	padding-top: 6px;
+}
+
+/* 에러 메시지에 대한 글자 색상 */
+.error {
+	color: red;
+}
+
+/* 에러가 발생한 <input>태그 */
+input.error {
+	background-color: #ffff00;
+}
+
+/* 에러메시지가 표시중인 <label>태그 */
+label.error {
+	font-size: 10px;
+	display: inline-block;
+	padding: 5px 10px;
+	margin: 0;
+}
+
+
+
+/**--------------- 별점 시작 ---------------*/
+.review_rating{
+	display: inline-block;
+}
+
+.rating {
+	display: inline-block;
+	vertical-align:middle;
+}
+
+.rating>input {
+	display: none;
+	margin: 0 0px;
+}
+
+
+.rating>label:before {
+	display: inline-block;
+	content: "\f005";
+	background: url('../img/star.png') 0 0 no-repeat;
+	width: 17px;
+	color: rgba(0, 0, 0, 0);
+	background-size: 17px;
+}
+
+.rating>input[type="radio"]+label {
+	color: #999;
+	float: right;
+	margin: 0 1px;
+}
+
+.rating>input:checked ~ label {
+	content: "\f005";
+	display: inline-block;
+	background: url('../img/star-on.png') 0 0 no-repeat;
+	width: 17px;
+	padding: 0;
+	background-size: 17px;
+	z-index: 5;
+}
+
+.rating>input:checked ~ label:before {
+	background: none;
+}
+/**--------------- 별점 끝 ---------------*/
+
+.rating>img {
+	display: inline-block;
+	width: 17px;
+	
+}

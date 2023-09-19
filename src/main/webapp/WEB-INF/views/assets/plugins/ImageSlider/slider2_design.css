@@ -1,0 +1,228 @@
+/*!
+ * Slider2 v0.0.1
+ * https://github.com/fengyuanchen/slider2
+ *
+ * Copyright (c) 2014 Fengyuan Chen
+ * Released under the MIT license
+ */
+
+.box_pd { padding-left:3%;}
+
+.slider2 {
+  position: relative;
+  width: 100%;
+}
+
+.slider2-content>div { width: 100%; }
+
+
+/* ====================================================================================================================
+ * 백그라운드 이미지
+ * ====================================================================================================================*/
+.bn_bg_05_01 {
+    	background-image: url('../../img/main/bn05-slideimg03-1.jpg');
+		background-repeat:no-repeat;
+		background-size:cover;
+}
+
+.bn_bg_05_02 {
+    	background-image: url('../../img/main/bn05-slideimg03-2.jpg');
+		background-repeat:no-repeat;
+		background-size:cover;
+}
+
+.bn_bg_05_03 {
+    	background-image: url('../../img/main/bn05-slideimg03-3.jpg');
+		background-repeat:no-repeat;
+		background-size:cover;
+}
+
+.slider-img-1 {
+    	background-image: url('../../img/phil_carousel_1.jpg');
+		background-repeat:no-repeat;
+		background-size:cover;
+}
+
+.slider-img-2 {
+    	background-image: url('../../img/phil_carousel_2.jpg');
+		background-repeat:no-repeat;
+		background-size:cover;
+}
+
+.slider-img-3 {
+    	background-image: url('../../img/phil_carousel_3.jpg');
+		background-repeat:no-repeat;
+		background-size:cover;
+}
+
+.slider-img-4 {
+    	background-image: url('../../img/story_carousel_1.jpg');
+		background-repeat:no-repeat;
+		background-size:cover;
+		margin: 0px auto;
+}
+
+.slider-img-5 {
+    	background-image: url('../../img/story_carousel_2.jpg');
+		background-repeat:no-repeat;
+		background-size:cover;
+		margin: 0px auto;
+}
+
+.slider-img-6 {
+    	background-image: url('../../img/story_carousel_3.jpg');
+		background-repeat:no-repeat;
+		background-size:cover;
+		margin: 0px auto;
+}
+
+/* ====================================================================================================================
+ * 슬라이드 버튼, 바
+ * ====================================================================================================================*/
+.slider2-nav {
+  background-color: #bebebe;
+  background-color: bebebe;
+  bottom: 0;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: auto;
+  transition: height linear .2s;
+}
+
+.slider2:hover .slider2-nav {
+  height: 20px;
+  transition: height linear .2s;
+}
+
+.slider2-nav div {
+  background-color: transparent;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  float: left;
+  height: 100%;
+  width: 33.3%;
+  transition: background-color linear .2s;
+}
+
+.slider2-nav .slider2-active {
+  background-color: #252525;
+  border-color: #252525;
+  cursor: default;
+  transition: background-color linear .2s;
+}
+
+.slider2-prev,
+.slider2-next {
+  background-color: #252525;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  height: 60px;
+  line-height: 60px;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  top: 150px;
+  width: 0;
+  transition: width linear .2s;
+}
+
+.slider2-prev {
+  border-left-width: 1px;
+  left: 0;
+}
+
+.slider2-next {
+  border-right-width: 1px;
+  right: 0;
+}
+
+.slider2-disabled {
+  background-color: #252525;
+  color: #ccc;
+  cursor: default;
+}
+
+.slider2:hover .slider2-prev,
+.slider2:hover .slider2-next {
+  width: 30px;
+  transition: width linear .2s;
+}
+
+.fullscreen {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+.fullscreen .slider2-prev,
+	.fullscreen .slider2-next {
+	  top: 48%;
+	}
+
+
+/* ====================================================================================================================
+ * 큰 크기의 데스크탑 혹은 가로 1200px 이상
+ * ====================================================================================================================*/
+@media (min-width: 1200px) {
+    .slider2 {
+        height: 540px;
+        width: 100%;
+    }
+    
+    .slider2-content>div {
+    	height:600px;
+    	background-position:0 -100px;
+    }	    
+}
+
+
+/* ====================================================================================================================
+ * 작은 크기의 데스크탑 혹은 가로 992px 이상
+ * ====================================================================================================================*/
+@media (min-width: 992px) and (max-width: 1199px) {
+    .slider2 {
+        height: 540px;
+        width: 100%;
+    }
+    
+    .slider2-content>div {
+    	height:540px;
+    	background-position:0 -100px;
+    }
+}
+
+
+/* ====================================================================================================================
+ * 태블릿 PC 혹은 가로 768px 이상
+ * ====================================================================================================================*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .slider2 {
+        height: 500px;
+        width: 100%;
+    }
+    
+    .slider2-content>div {
+    	height:540px;
+    	background-position:0 -100px;
+    }
+
+}
+
+
+/* ====================================================================================================================
+ * 가장 작은 해상도 (핸드폰종류, 가로 480px 이하)
+ * ====================================================================================================================*/
+@media (max-width: 767px) {
+    .slider2 {
+        height: 400px;
+        width: 100%;
+    }
+    
+    .slider2-content>div {
+    	height:540px;
+
+    }
+ }

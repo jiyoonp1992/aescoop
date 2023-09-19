@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+#p-container { 
+	margin: 40px 0 0 0;
+	padding: 60px 0 40px 0; 
+}
+
+.title-wrapper {
+	padding: 20px;
+}
+
+.title {
+	font-size: 21px;
+	line-height: 1.4;
+	text-align: center;
+}
+
+.image-story img {
+	width: 100%;
+}
+
+.bodycopy-wrapper {
+	padding: 20px;
+}
+
+
+.leftcopy-wrapper {
+	padding: 20px 0px 40px 0px;
+}
+
+.leftcopy-title {
+	font-family: Zapf Humanist,serif;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.store-slider {
+	margin-top: 45px;
+}
+
+#p-container p {
+	font-weight: 300;
+	margin-bottom: 20px;
+}
+
+.link_button {
+  font-size: 14px;
+  line-height: 1.4;
+  display:block;
+  width:auto;
+  padding: 19px 23px;
+  border: 1px solid rgba(51,51,51,.2);
+  margin-top:30px;
+}
+
+.link_button:hover {
+  border: 0px;
+  background-color:#333333;
+  border: 1px solid #333333;
+  color:#ffffff;
+}
+
+.quote-wrapper {
+	padding: 60px 20px;
+	text-align: center;
+}
+
+.quote-paragraph {
+	font-size: 23px;
+	line-height: 27px;
+}
+
+
+
+/* ====================================================================================================================
+ * 가장 작은 해상도 (핸드폰종류, 가로 480px 이하)
+ * ====================================================================================================================*/
+@media (max-width: 767px) {
+    .leftcopy-title { font-size:20px; }
+    
+    .bodycopy-copy { font-size: 17px; }
+    
+    .eng_text { line-height:40px; padding-bottom: 10px; }
+    
+    .text-center { font-size: 24px; }
+ }
